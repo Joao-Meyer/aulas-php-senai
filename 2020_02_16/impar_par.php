@@ -19,7 +19,24 @@ setlocale(LC_ALL, "pt-BR");
         ?>
         
         <div id="containerPagina">
-            
+        <div class="containerInputs">
+                            Tabuada:
+                            <select name="selectTabuada">
+                                <option value=""> Selecione a tabuada </option>
+
+                                
+                            </select>
+                        </div>
+
+                        <div class="containerInputs">
+                            Contador:
+                            <select name="selectContador">
+                                <option value=""> Selecione um contador </option>
+
+                                <option value="SP"> Soa Poula </option>
+
+                                <option value="RJ"> Erre Jóta </option>
+                            </select>
         </div>
         
         <?php
