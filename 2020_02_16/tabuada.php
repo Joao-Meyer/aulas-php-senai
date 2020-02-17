@@ -22,7 +22,7 @@ $mensagemDeErro = (string) null;
             settype($tabuada, "float");
             settype($contador, "integer");
          
-            for($iteracao  = 0; $iteracao <= $contador; $iteracao++){
+            for($iteracao  = 1; $iteracao <= $contador; $iteracao++){
                 $resultado = $tabuada * $iteracao;
                 $saida .= "
                 <div class='mensagensDeErro'>
@@ -59,7 +59,7 @@ $mensagemDeErro = (string) null;
             
             <div id="containerFuncao">
                 <div id="containerEntradaDeDados">
-                    <form name="formCalculoDeMedia" action="tabuada.php" method="post">
+                    <form name="formTabuada" action="tabuada.php" method="post">
                         <div class="containerInputs">
                             Tabuada:
                             <input type="text" name="textTabuada" value="<?=$tabuada?>">

@@ -171,6 +171,26 @@ h1 {
     height: 100%;
 }
 
+/* Função de Impar Par */
+.containerResultadoImparPar {
+    width: 45%;
+    height: 400px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 5%;
+    margin-left: 3.5%;
+    float: left;
+    background-color: #c8b900;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.containerResultadosImparPar {
+    width: 20%;
+    height: 100%;
+    text-align: center;
+}
+
 /* Rodapé */
 footer {
     width: 100%;
