@@ -1,5 +1,7 @@
 <?php
 setlocale(LC_ALL, "pt-BR");
+
+require_once("modulos/funcoes.php");
 require_once("modulos/constantes.php");
 
 $tabuada = (integer) 0;
@@ -22,14 +24,7 @@ $mensagemDeErro = (string) null;
             settype($tabuada, "float");
             settype($contador, "integer");
          
-            for($iteracao  = 1; $iteracao <= $contador; $iteracao++){
-                $resultado = $tabuada * $iteracao;
-                $saida .= "
-                <div class='mensagensDeErro'>
-                    $tabuada X $iteracao = $resultado
-                </div>
-                ";
-            }
+            $saida = tabuar($tabuada, $contador);
         }
     }
 ?>

@@ -1,16 +1,14 @@
 <?php
 setlocale(LC_ALL, "pt-BR");
 
+require_once("modulos/funcoes.php");
 require_once("modulos/constantes.php");
 
 $mensagemDeErro = (string) null;
 $valor1 = (float) 0;
 $valor2 = (float) 0;
 $resultado = (float) 0;
-$checkSomar = (string) null;
-$checkSubtrair = (string) null;
-$checkMultiplicar = (string) null;
-$checkDividir = (string) null;
+$operacao = (string) null;
 
     if (isset($_POST['submitCalcular'])){
         if(!isset($_POST['botaoOperacao'])){
@@ -32,23 +30,8 @@ $checkDividir = (string) null;
 
                 settype($valor1, "float");
                 settype($valor2, "float");
-                
-                if($operacao == "somar"){
-                    $resultado = $valor1 + $valor2;
-                    $checkSomar = "checked";
-                }
-                elseif($operacao == "subtrair"){
-                    $resultado = $valor1 - $valor2;
-                    $checkSubtrair = "checked";
-                }
-                elseif($operacao == "multiplicar"){
-                    $resultado = $valor1 * $valor2;
-                    $checkMultiplicar = "checked";
-                }
-                elseif($operacao == "dividir"){
-                    $resultado = $valor1 / $valor2;
-                    $checkDividir = "checked";
-                }
+
+                $resultado = calculadoraIf($operacao, $valor1, $valor2);
             }
         }
     }
@@ -92,19 +75,19 @@ $checkDividir = (string) null;
                             </div>
 
                             <div class="containerInputs">
-                                <input type="radio" name="botaoOperacao" value="somar" <?=$checkSomar?>>SOMAR
+                                <input type="radio" name="botaoOperacao" value="somar" <?=$operacao =="somar" ? 'checked' : '' ?>>SOMAR
                             </div>
 
                             <div class="containerInputs">
-                                <input type="radio" name="botaoOperacao" value="subtrair" <?=$checkSubtrair?>>SUBTRAIR
+                                <input type="radio" name="botaoOperacao" value="subtrair" <?=$operacao =="subtrair" ? 'checked' : '' ?>>SUBTRAIR
                             </div>
 
                             <div class="containerInputs">
-                                <input type="radio" name="botaoOperacao" value="multiplicar" <?=$checkMultiplicar?>>MULTIPLICAR
+                                <input type="radio" name="botaoOperacao" value="multiplicar" <?=$operacao =="multiplicar" ? 'checked' : '' ?>>MULTIPLICAR
                             </div>
 
                             <div class="containerInputs">
-                                <input type="radio" name="botaoOperacao" value="dividir" <?=$checkDividir?>>DIVIDIR
+                                <input type="radio" name="botaoOperacao" value="dividir" <?=$operacao =="dividir" ? 'checked' : '' ?>>DIVIDIR
                             </div>
 
                             <div class="containerInputs">

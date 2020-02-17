@@ -3,7 +3,7 @@ body {
     background-color: #36d1d9;
 }
 
-a {
+a, .texto {
     font-size: 24px;
     color: black;
     text-decoration-line: none;

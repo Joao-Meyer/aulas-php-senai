@@ -10,23 +10,21 @@
                     </li>
 
                     <li class="menuItem">
-                        <a>
-                            <div class="menuText">Calculadoras
-                                <ul class="submenu">
-                                    <li class="submenuItem">
-                                        <a href="calculadora_if.php" title="Link para a página da calculadora com if.">
-                                            <div class="menuText">If</div>
-                                        </a>
-                                    </li>
+                        <div class="menuText texto">Calculadoras
+                            <ul class="submenu">
+                                <li class="submenuItem">
+                                    <a href="calculadora_if.php" title="Link para a página da calculadora com if.">
+                                        <div class="menuText">If</div>
+                                    </a>
+                                </li>
 
-                                    <li class="submenuItem">
-                                        <a href="calculadora_switch.php" title="Link para a página da calculadora com switch.">
-                                            <div class="menuText">Switch</div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </a>
+                                <li class="submenuItem">
+                                    <a href="calculadora_switch.php" title="Link para a página da calculadora com switch.">
+                                        <div class="menuText">Switch</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
 
                     <li class="menuItem">

@@ -1,9 +1,16 @@
 <?php
 setlocale(LC_ALL, "pt-BR");
 
+require_once("modulos/funcoes.php");
 require_once("modulos/constantes.php");
 
 $mensagemDeErro = (string) null;
+
+$nota1 = (float) 0;
+$nota2 = (float) 0;
+$nota3 = (float) 0;
+$nota4 = (float) 0;
+$media = (float) 0;
 
     if (isset($_POST['submitCalcular'])){
         $nota1 = str_replace(",", ".", $_POST['textNota1']);
@@ -13,39 +20,18 @@ $mensagemDeErro = (string) null;
 
         if(empty($nota1) || empty($nota2) || empty($nota3) || empty($nota4)){
             $mensagemDeErro = ERRO_CAIXA_VAZIA;
-
-            $nota1 = (float) 0;
-            $nota2 = (float) 0;
-            $nota3 = (float) 0;
-            $nota4 = (float) 0;
-            $media = (float) 0;
-
         }           
         elseif(!is_numeric($nota1) || !is_numeric($nota2) || !is_numeric($nota3) || !is_numeric($nota4)){
             $mensagemDeErro = ERRO_CARACTERE_INVALIDO;
-
-            $nota1 = (float) 0;
-            $nota2 = (float) 0;
-            $nota3 = (float) 0;
-            $nota4 = (float) 0;
-            $media = (float) 0;
         }
         else{
-
-        
             settype($nota1, "float");
             settype($nota2, "float");
             settype($nota3, "float");
             settype($nota4, "float");
-            $media = (float) ($nota1 + $nota2 + $nota3 + $nota4) / 4;
+            
+            $media = calculaMedia($nota1, $nota2, $nota3, $nota4);
         }
-    }
-    else {
-        $nota1 = (float) 0;
-        $nota2 = (float) 0;
-        $nota3 = (float) 0;
-        $nota4 = (float) 0;
-        $media = (float) 0;
     }
 ?>
 

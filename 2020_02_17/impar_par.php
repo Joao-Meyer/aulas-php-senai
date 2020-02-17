@@ -2,19 +2,14 @@
 setlocale(LC_ALL, "pt-BR");
 $mensagemDeErro = (string) null;
 
+require_once("modulos/funcoes.php");
 require_once("modulos/constantes.php");
 
     // Gera Options 0 a 500
-    $optionsIniciais = (string) null;
-    for($i = 0; $i <= 500; $i++){
-        $optionsIniciais .= "<option value='$i'> $i </option>";
-    }
+    $optionsIniciais = geraOptionsIniciais();
 
     // Gera Options 100 a 1000
-    $optionsFinais = (string) null;
-    for($i = 100; $i <= 1000; $i++){
-        $optionsFinais .= "<option value='$i'> $i </option>";
-    }
+    $optionsFinais = geraOptionsFinais();
     
     $numeroInicial = (integer) 0;
     $numeroFinal = (integer) 0;
