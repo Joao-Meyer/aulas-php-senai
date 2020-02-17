@@ -1,0 +1,220 @@
+/* Globais */
+body {
+    background-color: #36d1d9;
+}
+
+a {
+    font-size: 24px;
+    color: black;
+    text-decoration-line: none;
+}
+
+h1 {
+    font-size: 24px;
+    color: white;
+}
+
+.mensagensDeErro {
+    width: 100%;
+    height: 30px;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 3px;
+    box-sizing: border-box;
+    border: solid 2px #000000;
+    background-color: #ff3333;
+    
+}
+
+#containerMensagensDeErro {
+    width: 58vw;
+    height: 10vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+/* Parte do menu */
+#navMenu {
+    width: 64px;
+    height: 64px;
+    background-image: url(../imagens/botao-de-menu-de-tres-linhas-horizontais.png);
+    background-repeat: no-repeat;
+    margin-left: 10px;
+    margin-top: 10px;
+    top: 0;
+    position: fixed;
+    background-color: #1565c0;
+    border-radius: 5px;
+}
+
+#navMenu:hover > #containerMenu{
+    margin-left: 0px;
+    transition: 1s;
+    opacity: 1;
+}
+
+#containerMenu {
+    width: 150px;
+    min-height: 50px;
+    height: auto;
+    margin-left: -160px;
+    opacity: 0;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#menu, .submenu {
+    width: 150px;
+    min-height: 50px;
+    height: auto;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.submenu {
+    margin-left: 150px;
+    margin-top: -35px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menuItem, .submenuItem {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    padding-top: 3px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.menuItem:hover, .submenuItem:hover {
+    background-color: #5e92f3;
+    
+}
+
+.menuText:hover > .submenu{
+    transition: .25s;
+    opacity: 1;
+    visibility: visible;
+}
+
+.menuText {
+    width: 100%;
+    height: 100%;
+}
+
+/* Parte do conteúdo da página */
+#containerPagina {
+    width: 65%;
+    min-height: 300px;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 75px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #ffff72;
+    overflow: hidden;
+}
+
+    /* Função de média */
+#containerMedia {
+    width: 100%;
+    height: 100%;
+}
+
+#containerTitulo {
+    width: 100%;
+    height: 15%;
+    border-radius: 5px;
+    background-color: #c8b900;
+    text-align: center;
+}
+
+#containerFuncao {
+    width: 100%;
+    height: 85%;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+#containerEntradaDeDados {
+    width: 50%;
+    height: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.containerInputs {
+    width: 70%;
+    height: 30px;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#containerResultadoMedia {
+    width: 50%;
+    height: 20%;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #c8b900;
+}
+
+    /* Função de tabuada */
+#containerResultadoTabuada {
+    width: 50%;
+    height: 400px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #c8b900;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.containerResultadosTabuada {
+    width: 20%;
+    height: 100%;
+}
+
+/* Função de Impar Par */
+.containerResultadoImparPar {
+    width: 45%;
+    height: 400px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 5%;
+    margin-left: 3.5%;
+    float: left;
+    background-color: #c8b900;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.containerResultadosImparPar {
+    width: 20%;
+    height: 100%;
+    text-align: center;
+}
+
+/* Rodapé */
+footer {
+    width: 100%;
+    height: 5%;
+    background-color: #003c8f;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+}
