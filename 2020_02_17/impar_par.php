@@ -30,22 +30,8 @@ require_once("modulos/constantes.php");
             settype($numeroInicial, "integer");
             settype($numeroFinal, "integer");
 
-            for($numeroInicial; $numeroInicial <= $numeroFinal; $numeroInicial++){
-                if(($numeroInicial % 2) == 0){
-                    $numerosPares .= "
-                        <div class='mensagensDeErro'>
-                            $numeroInicial
-                        </div>
-                    ";
-                }
-                else{
-                    $numerosImpares .= "
-                        <div class='mensagensDeErro'>
-                            $numeroInicial
-                        </div>
-                    ";
-                }
-            }
+            $numerosPares = pares($numeroInicial, $numeroFinal);
+            $numerosImpares = impares($numeroInicial, $numeroFinal);
         }
     }
 ?>

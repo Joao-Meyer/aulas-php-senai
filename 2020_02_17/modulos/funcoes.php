@@ -77,4 +77,35 @@
         return $optionsFinais;
     }
 
+    function pares($numeroInicial, $numeroFinal){
+        $numerosPares = (string) null;
+
+        for($numeroInicial; $numeroInicial <= $numeroFinal; $numeroInicial++){
+            if(($numeroInicial % 2) == 0){
+                $numerosPares .= "
+                    <div class='mensagensDeErro'>
+                        $numeroInicial
+                    </div>
+                ";
+            }
+        }
+
+        return $numerosPares;
+    }
+
+    function impares($numeroInicial, $numeroFinal){
+        $numerosImpares = (string) null;
+
+        for($numeroInicial; $numeroInicial <= $numeroFinal; $numeroInicial++){
+            if(($numeroInicial % 2) == 1){
+                $numerosImpares .= "
+                    <div class='mensagensDeErro'>
+                        $numeroInicial
+                    </div>
+                ";
+            }
+        }
+
+        return $numerosImpares;
+    }
 ?>
