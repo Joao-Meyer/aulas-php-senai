@@ -1,0 +1,14 @@
+#corpoDaPagina {
+    width: 80vw;
+    min-height: 100vh;
+    height: auto;
+    background-color: indigo;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.teste {
+    width: 500px;
+    height: 600px;
+    background-color: green;
+}
