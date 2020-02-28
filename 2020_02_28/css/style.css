@@ -1,0 +1,111 @@
+* {
+    margin: 0px;
+    height: 0px;
+}
+
+/* Cabeçalho */
+#containerCabecalho {
+    width: 100%;
+    height: 8vh;
+    background-color: #4c1503;
+}
+
+#cabecalho {
+    width: 62vw;
+    height: 8vh;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: orange;
+}
+
+#logo {
+    width: 8vw;
+    height: 5vh;
+    margin-left: 1vw;
+    margin-top: 2vh;
+    background-color: blueviolet;
+    float: left;
+}
+
+#menu {
+    width: 32vw;
+    height: 3vh;
+    margin-left: 1.5vw;
+    margin-bottom: 5vh;
+    margin-top: 4vh;
+    background-color: brown;
+    float: left;
+}
+
+.menuItem {
+    width: 4vw;
+    height: 3vh;
+    margin-left: .5vw;
+    padding-top: .5vh;
+    padding-left: 1vw;
+    box-sizing: border-box;
+    border-radius: .5vh;
+    background-color: coral;
+    float: left;
+}
+
+#campoDeLogin {
+    width: 17vw;
+    height: 6vh;
+    margin-top: 1vh;
+    margin-left: 1.5vw;
+    float: left;
+    background-color: yellow;
+}
+
+#containerUsuario {
+    width: 7.5vw;
+    height: 6vh;
+    background-color: red;
+    float: left;
+}
+
+#containerSenha {
+    width: 7.5vw;
+    height: 6vh;
+    background-color: bisque;
+    float: left;
+}
+
+#textoUsuario {
+    width: 7.5vw;
+    height: 2.5vh;
+    background-color: chartreuse;
+}
+
+#textoSenha {
+    width: 7.5vw;
+    height: 2.5vh;
+    background-color: green;
+}
+
+#campoUsuario {
+
+}
+
+#campoSenha {
+
+}
+
+.conteinerBotao {
+    width: 2vw;
+    height: 3.5vh;
+    margin-top: 2.5vh;
+    background-color: grey;
+    float: left;
+}
+
+/* Corpo da página */
+#conteudoPagina {
+    width: 62vw;
+    min-height: 80vh;
+    height: auto;
+    background-color: #facada;
+    margin-left: auto;
+    margin-right: auto;
+}
