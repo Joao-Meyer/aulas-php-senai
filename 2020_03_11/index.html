@@ -4,15 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/jquery.js"></script>
     <title>Pagina Responsiva</title>
+
+    <script>
+        $( document ).ready( function(){
+            // Function para o Click do Menu Mobile
+            $( '#iconeMenuMobile' ).click( function(){
+                $( '#menuMobile' ).fadeToggle( 1000 );
+            } );
+
+            $( '.menuItemMobile' ).click( function(){
+                $( '#menuMobile' ).fadeToggle();
+            } );
+        } );
+    </script>
 </head>
 <body>
     <header>
         <div class="containerCenter center">
+            <nav id="containerMenuMobile">
+                <div id="iconeMenuMobile"></div>
+
+                <div id="menuMobile">
+                    <ul>
+                        <li class="menuItemMobile"></li>
+                        <li class="menuItemMobile"></li>
+                        <li class="menuItemMobile"></li>
+                        <li class="menuItemMobile"></li>
+                    </ul>
+                </div>
+            </nav>
+
             <div id="logo">
 
             </div>
 
+            <!-- Menu Desktop -->
             <nav id="containerMenu">
                 <ul id="menu">
                     <li class="menuItem">Menu</li>

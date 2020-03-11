@@ -28,11 +28,6 @@ p {
     padding: 10px;
 }
 
-.containerCenter {
-    width: 1300px;
-    height: inherit;
-}
-
 .heightAuto {
     min-height: 100px;
     height: auto;
@@ -54,6 +49,11 @@ p {
 @media screen and (min-device-width:1300px){
 
     /* Header */
+    .containerCenter {
+        width: 1300px;
+        height: inherit;
+    }
+
     header {
         width: 100%;
         height: 100px;
@@ -96,6 +96,10 @@ p {
         background-color: khaki;
         cursor: pointer;
         color: #000000;
+    }
+
+    #containerMenuMobile {
+        display: none;
     }
 
     /* Conteúdo */
@@ -167,37 +171,81 @@ p {
 
 /* Dispositivos: Mobile */
 @media screen and (max-device-width:780px){
-    
+    h1 {
+        text-align: center;
+    }
+
     /* Header */
+    .containerCenter {
+        width: 100%;
+        height: inherit;
+    }
+
     header {
         width: 100%;
         height: 100px;
         background-color: #000000;
+        position: fixed;
     }
 
     #logo {
         width: 100px;
         height: inherit;
         background-color: khaki;
-        float: left;
-        margin-right: 10px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
+    /* Desabilita o menu versão desktop */
     #containerMenu {
         display: none;
+    }
+
+    #containerMenuMobile{
+        width: 100px;
+        height: inherit;
+        position: fixed;
+    }
+
+    #iconeMenuMobile {
+        width: 80px;
+        height: 80px;
+        margin-top: 10px;
+        margin-left: 10px;
+        background-image: url(../imagens/menu_branco.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #menuMobile {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 999;
+        display: none;
+    }
+
+    .menuItemMobile {
+        width: 100%;
+        height: 50px;
+        background-color: purple;
     }
 
     /* Conteúdo */
     #content {
         width: auto;
+        box-sizing: border-box;
+        padding-top: 100px;
     }
 
     /* Empresa */
     .conteudoEmpresa {
         width: 250px;
         height: 300px;
-        float: left;
-        margin-right: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
         box-sizing: border-box;
         padding: 10px;
         background-color: khaki;
@@ -205,11 +253,12 @@ p {
 
     /* Serviços */
     #servicoTexto {
-        width: 800px;
+        width: 90%;
         box-sizing: border-box;
         padding: 10px;
-        float: left;
-        margin-right: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
         background-color: khaki;
     }
 
@@ -218,17 +267,20 @@ p {
         height: 300px;
         box-sizing: border-box;
         padding: 10px;
-        float: left;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
         background-color: khaki;
     }
 
     /* Localização */
     #localizacaoTextoLeft, #localizacaoTextoRight {
-        width: 400px;
+        width: 90%;
         box-sizing: border-box;
         padding: 10px;
-        float: left;
-        margin-right: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
         background-color: khaki;
     }
 
@@ -237,19 +289,20 @@ p {
         height: 300px;
         box-sizing: border-box;
         padding: 10px;
-        float: left;
-        margin-right: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
         background-color: khaki;
     }
 
     #localizacaoTextoRight {
-        width: 500px;
-        margin-right: 0px;
+        width: 90%;
     }
 
     /* Footer */
     footer {
         width: 100%;
         height: 50px;
+        background-color: black;
     }
 }
