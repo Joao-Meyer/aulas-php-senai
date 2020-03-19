@@ -1,0 +1,494 @@
+/* * {
+    margin: 0px;
+    height: 0px;
+} */
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+body{
+    background-image: url(../imagens/veg_burger_2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Cabeçalho */
+#secaoCabecalho {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    z-index: 999;
+    background-color: #ffffff;
+    border-bottom: 2px solid #000000;
+    /* background-color: #4c1503; */
+}
+
+#conteinerCabecalho {
+    width: 1200px;
+    height: 80px;
+    margin-right: auto;
+    margin-left: auto;
+    /* border: 2px solid #000000; */
+    box-sizing: border-box;
+}
+
+#logo {
+    width: 80px;
+    height: 70px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 5px;
+    /* background-color: blueviolet; */
+    float: left;
+    background-image: url(../imagens/doug_funny.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#menu {
+    /* min-width: 950px; */
+    min-width: 630px;
+    width: auto;
+    height: 80px;
+    box-sizing: border-box;
+    /* margin-top: 30px; */
+    margin-right: 30px;
+    /* padding: 5px; */
+    /* background-color: #C7E100; */
+    float: left;
+}
+
+.menuItem {
+    /* width: 130px; */
+    min-width: 80px;
+    width: auto;
+    height: 80px;
+    /* margin-top: 2px; */
+    margin-left: 5px;
+    padding-top: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
+    float: left;
+    font-size: 1em;
+    line-height: 1em;
+    text-align: center;
+}
+
+.menuItem:hover {
+    /* background-color: #5B8626; */
+    background-color: #C7E100;
+}
+
+#campoDeLogin {
+    width: 360px;
+    height: 50px;
+    margin-top: 20px;
+    float: left;
+}
+
+#containerUsuario {
+    width: 150px;
+    height: 50px;
+    float: left;
+}
+
+#containerSenha {
+    width: 150px;
+    height: 50px;
+    margin-left: 10px;
+    float: left;
+}
+
+#textoUsuario {
+    width: 150px;
+    height: 25px;
+    font-size: 1.2em;
+    line-height: 1.2em;
+}
+
+#textoSenha {
+    width: 150px;
+    height: 25px;
+    font-size: 1.2em;
+    line-height: 1.2em;
+}
+
+#campoUsuario, #campoUsuario input {
+    width: 100%;
+    height: 25px;
+    box-sizing: border-box;
+}
+
+#campoSenha, #campoSenha input {
+    width: 100%;
+    height: 25px;
+    box-sizing: border-box;
+}
+
+.conteinerBotao {
+    width: 35px;
+    height: 25px;
+    margin-top: 25px;
+    margin-left: 5px;
+    float: left;
+}
+
+.botaoSubmit {
+    width: 35px;
+    height: 25px;
+}
+
+/* Corpo da página */
+#secaoConteudo {
+    width: 100%;
+    min-height: 800px;
+    height: auto;
+    /* padding-top: 80px; */
+}
+
+#conteinerConteudoPagina {
+    width: 1200px;
+    min-height: 800px;
+    height: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Conteudo da HOME */
+#conteinerSlider, #conteinerSlider img {
+    width: inherit;
+    height: 400px;
+    background-color: lightcoral;
+}
+
+#conteinerRedesSociais {
+    width: 100px;
+    height: 300px;
+    margin-left: 1205px;
+    box-sizing: border-box;
+    position: fixed;
+}
+
+.conteinerImagemRedeSocial, .conteinerImagemRedeSocial img {
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+#menuLateral {
+    width: 150px;
+    min-height: 50px;
+    height: auto;
+    float: left;
+}
+
+.menuLateralItem{
+    width: inherit;
+    height: 50px;
+    padding-top: 15px;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.menuLateralItem:hover {
+    background-color: #5B8626;
+    color: #ffffff;
+}
+
+#conteinerProdutos {
+    width: 1050px;
+    min-height: 800px;
+    height: auto;
+    box-sizing: border-box;
+    padding: 10px;
+    padding-top: 50px;
+    float: left;
+    overflow: hidden;
+}
+
+.cardProduto{
+    width: 330px;
+    height: 470px;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    background-color: cornflowerblue;
+}
+
+.imagemCard, .cardProduto img  {
+    width: 330px;
+    height: 250px;
+    /* margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px; */
+    background-color: lightgreen;
+}
+
+.cardProduto img{
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+.textoCard {
+    width: 100%;
+    height: 220px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: lightsalmon;
+}
+
+.textoCardInformacoes {
+    width: 100%;
+    height: 150px;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    background-color: blanchedalmond;
+}
+
+.textoCardDetalhes {
+    width: 100px;
+    height: 50px;
+    box-sizing: border-box;
+    margin-left: 210px;
+    padding-top: 15px;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+    background-color: darkcyan;
+}
+
+/* Coteudo Sobre */
+#conteinerConteudoSobre {
+    width: 100%;
+    min-height: 500px;
+    height: auto;
+    box-sizing: border-box;
+    padding: 50px;
+}
+
+#conteinerImagemOQueSomos, #conteinerImagemOQueSomos img,
+#conteinerImagemPorqueHamburguer, #conteinerImagemPorqueHamburguer img {
+    width: 320px;
+    height: 300px;
+    border-radius: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.titulosSobre {
+    font-size: 2.0em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.textosSobre {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+/* Conteudo Destaque */
+#conteinerImagemDestaque {
+    width: 800px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#conteinerImagemDestaque img {
+    width: 800px;
+    height: 500px;
+}
+
+#conteinerTextoDestaque {
+    width: 1000px;
+    min-height: 100px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#conteinerTextoDestaque h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+#conteinerTextoDestaque p {
+    font-size: 2em;
+    line-height: 1.3em;
+    margin-bottom: 50px;
+}
+
+/* Conteudo Destaques */
+#conteinerCuriosidades {
+    width: 1000px;
+    min-height: 100px;
+    box-sizing: border-box;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+    padding-bottom: 25px;
+}
+
+#conteinerCuriosidades h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+#conteinerCuriosidades h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+#conteinerCuriosidades p {
+    font-size: 1.4em;
+    line-height: 1.2em;
+    margin-bottom: 25px;
+}
+
+.conteinerImagensCuriosidades {
+    width: 500px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+}
+
+.conteinerImagensCuriosidades img {
+    width: 500px;
+    height: 300px;
+}
+
+/* Coteudo Contato */
+#conteinerFormulario {
+    width: 100%;
+    height: 600px;
+    margin-top: 50px;
+    padding: 50px; /* Limitou o espaço para apenas 1100 X 700 */
+    background-color: rgba(199, 255, 0, 0.4);
+}
+
+.conteinerInput{
+    width: 300px;
+    height: 60px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.inputs {
+    width: 300px;
+    height: 30px;
+    font-size: 1.0em;
+}
+
+.conteinerInputTextArea {
+    width: 300px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.conteinerInputTextArea textarea {
+    resize: none;
+}
+
+.conteinerInputSubmit, .conteinerInputSubmit input {
+    width: 70px;
+    height: 30px;
+    float: left;
+    margin-top: 20px;
+    box-sizing: border-box;
+    background-color: #C7E100;
+    border: 1px solid black;
+}
+
+.conteinerInputSubmit input {
+    margin-top: 0px;
+}
+
+/* Rodapé */
+footer {
+    width: 1200px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #C7E100;
+}
+
+#conteinerSistemaInterno {
+    width: 200px;
+    height: 50px;
+    margin-top: 37.5px;
+    margin-left: 60px;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+    float: left;
+    background-color: hotpink;
+}
+
+#conteinerEndereco {
+    width: 480px;
+    height: 30px;
+    margin-top: 60px;
+    margin-left: 60px;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+    float: left;
+    background-color: grey;
+}
+
+#conteinerApp {
+    width: 280px;
+    height: 75px;
+    margin-top: 12.5px;
+    margin-left: 60px;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+    float: left;
+    background-color: indigo;
+}
+
+#conteinerImagemDoApp {
+    width: 75px;
+    height: 75px;
+    margin-left: 10px;
+    float: left;
+    background-color: lightblue;
+}
+
+#conteinerLinkDoApp {
+    width: 175px;
+    height: 50px;
+    margin-top: 15px;
+    margin-left: 10px;
+    float: left;
+    text-align: center;
+    background-color: magenta;
+}
