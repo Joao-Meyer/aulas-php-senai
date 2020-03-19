@@ -388,6 +388,12 @@ body{
     background-color: rgba(199, 255, 0, 0.4);
 }
 
+#conteinerFormulario h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
 .conteinerInput{
     width: 300px;
     height: 60px;
