@@ -1,22 +1,42 @@
 <?php
-    /* Conexão com o Banco de Dados
-            Temos 3 bibliotecas de conexão com o Mysql
+    // Import da biblioteca de conexão
+    require_once('../modulos/conexaoBD.php');
 
-            mysql_connect() - Biblioteca de conexão mais antiga nas versões do PHP
-                (apenas conexão estruturada)
-                    mysql_connect(server, user, password)
-                    mysql_select_db(databaseName)
+    // Abre a conexão com o BD
+    $conexao = conexaoMysql();
 
-            mysqli_connect() - Biblioteca mais atualizada
-                (permite realizar uma conexão de forma estruturada e orientada a objetos)
-                    mysqli_connect(server, user, password, databaseName)
+    // Valida se o formulário foi submetido pelo usuário
+    if(isset($_POST['buttonSubmit'])){
 
-            PDO - Biblioteca com muito mais recursos de conexão e é específica para orientação a objetos
-                (tem um nivel de segurança mais atualizado)
-    */
+        // Resgatando dados fornecidos pelo usuário pelo método POST
+        $nome = $_POST['inputNome'];
+        $endereco = $_POST['inputEndereco'];
+        $bairro = $_POST['inputBairro'];
+        $cep = $_POST['inputCep'];
+        $telefone = $_POST['inputTelefone'];
+        $celular = $_POST['inputCelular'];
+        $email = $_POST['inputEmail'];
+        $dataNascimento = explode("/", $_POST['inputDataNascimento']);
 
-    /* Realiza a conexão com o Banco de Dados Mysql */
-    $conexao = mysqli_connect('localhost', 'root', 'bcd127', 'dbContatos20201A');
+        // Conversão da data brasileira para o padrão americano, pois o BD só aceita o padrão americano AA-MM-DD
+        $dataNascimentoAmericana = $dataNascimento[2]."-".$dataNascimento[1]."-".$dataNascimento[0];
+        $sexo = $_POST['inputSexo'];
+        $obs = $_POST['textAreaObs'];
+        $idEstado = $_POST['selectEstado'];
+
+        $queryInsertEstados = "insert into tblContatos
+            (
+                nome, endereco, bairro, cep, idEstado, telefone, celular, email, sexo, dtNasc, obs
+            ) 
+            values
+                (
+                    '".$nome."', '".$endereco."', '".$bairro."', '".$cep."', ".$idEstado.",
+                    '".$telefone."', '".$celular."', '".$email."', '".$sexo."', '".$dataNascimentoAmericana."', '".$obs."'
+                )";
+
+        echo($queryInsertEstados);
+        // mysqli_query($conexao, $queryInsertEstados);
+    }
 ?>
 
 <!DOCTYPE html>
