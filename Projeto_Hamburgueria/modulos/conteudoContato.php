@@ -41,12 +41,12 @@
 
                 <div class="conteinerInputTextArea">
                     Sugestões / Críticas:
-                    <textarea name="inputSugestao" id="" cols="30" rows="10"></textarea>
+                    <textarea name="inputSugestao" cols="30" rows="10"></textarea>
                 </div>
 
                 <div class="conteinerInputTextArea">
                     Mensagem:
-                    <textarea name="inputMensagem" id="" cols="30" rows="10"></textarea>
+                    <textarea name="inputMensagem" cols="30" rows="10"></textarea>
                 </div>
 
                 <div class="conteinerInput">

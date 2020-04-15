@@ -6,62 +6,62 @@
 
             <div id="menuMobile">
                 <ul>
-                    <a href="sobre.php">
-                        <li class="menuItemMobile">HONKER</li>
-                    </a>
+                    <li class="menuItemMobile">
+                        <a href="sobre.php">HONKER</a>
+                    </li>
                     
-                    <a href="promocoes.php">
-                        <li class="menuItemMobile">PROMOÇÕES</li>
-                    </a>
+                    <li class="menuItemMobile">
+                        <a href="promocoes.php">PROMOÇÕES</a>
+                    </li>
                     
-                    <a href="destaques.php">
-                        <li class="menuItemMobile">DESTAQUES</li>
-                    </a>
+                    <li class="menuItemMobile">
+                        <a href="destaques.php">DESTAQUES</a>
+                    </li>
 
-                    <a href="curiosidades.php">
-                        <li class="menuItemMobile">CURIOSIDADES</li>
-                    </a>
-
-                    <a href="lojas.php">
-                        <li class="menuItemMobile">LOJAS</li>
-                    </a>
-
-                    <a href="contato.php">
-                        <li class="menuItemMobile">CONTATO</li>
-                    </a>
+                    <li class="menuItemMobile">
+                        <a href="curiosidades.php">CURIOSIDADES</a>
+                    </li>
+                    
+                    <li class="menuItemMobile">
+                        <a href="lojas.php">LOJAS</a>
+                    </li>
+                    
+                    <li class="menuItemMobile">
+                        <a href="contato.php">CONTATO</a>
+                    </li>
                 </ul>
             </div>
         </nav>
         
-        <a href="super.php">
-            <div id="logo"></div>
-        </a>
+        <div id="logo">
+            <a href="super.php"></a>
+        </div>
 
         <nav id="menu">
             <ul>
-                <a href="sobre.php">
-                    <li class="menuItem">HONKER</li>
-                </a>
+                <li class="menuItem">
+                    <a href="sobre.php">HONKER</a>
+                </li>
                 
-                <a href="promocoes.php">
-                    <li class="menuItem">PROMOÇÕES</li>
-                </a>
+                <li class="menuItem">
+                    <a href="promocoes.php">PROMOÇÕES</a>
+                </li>
                 
-                <a href="destaques.php">
-                    <li class="menuItem">DESTAQUES</li>
-                </a>
-
-                <a href="curiosidades.php">
-                    <li class="menuItem">CURIOSIDADES</li>
-                </a>
-
-                <a href="lojas.php">
-                    <li class="menuItem">LOJAS</li>
-                </a>
-
-                <a href="contato.php">
-                    <li class="menuItem">CONTATO</li>
-                </a>
+                <li class="menuItem">
+                    <a href="destaques.php">DESTAQUES</a>
+                </li>
+                
+                <li class="menuItem">
+                    <a href="curiosidades.php">CURIOSIDADES</a>
+                </li>
+                
+                <li class="menuItem">
+                    <a href="lojas.php">LOJAS</a>
+                </li>
+                
+                <li class="menuItem">
+                    <a href="contato.php">CONTATO</a>
+                </li>
             </ul>
         </nav>
 
@@ -90,5 +90,3 @@
         </div>
     </div>
 </div>
-
-<div style="width: 100%; height: 80px;"></div>

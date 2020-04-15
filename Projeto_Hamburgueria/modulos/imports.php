@@ -4,3 +4,13 @@
 <script src="./javascript/jimcarey.js"></script>
 <script src="./javascript/cycle.js"></script>
 <script src="./javascript/slide.js"></script>
+
+
+
+<?php
+        require_once('./modulos/menuMobile.php');
+?>
+
+<?php
+        require_once('./modulos/menuLateral.php');
+?>

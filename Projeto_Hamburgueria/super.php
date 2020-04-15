@@ -8,10 +8,6 @@
     <?php
         require_once('./modulos/imports.php');
     ?>
-
-    <?php
-        require_once('./modulos/script_slider.php');
-    ?>
 </head>
 <body>
     <?php

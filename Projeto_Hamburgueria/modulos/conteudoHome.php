@@ -18,6 +18,8 @@
             </div>
         </div>
 
+        <div id="menuLateralIcon"></div>
+
         <div id="menuLateral">
             <div class="menuLateralItem">Item</div>
             <div class="menuLateralItem">Item</div>
