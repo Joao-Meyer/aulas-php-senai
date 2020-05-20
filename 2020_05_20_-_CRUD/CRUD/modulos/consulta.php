@@ -44,7 +44,8 @@
                         <td class="tblColunas"><?=$rsContatos['email']?></td>
                         <td class="tblColunas">
                             <div class="tblImagens">
-                                <a href="modulos/delete_contato.php?id=<?=$rsContatos['idContato']?>">
+                                <a onclick="return confirm('Deseja realmente excluir o registro?');"
+                                href="../modulos/delete_contato.php?modo=excluir&id=<?=$rsContatos['idContato']?>">
                                     <div class="excluir"></div>
                                 </a>
 

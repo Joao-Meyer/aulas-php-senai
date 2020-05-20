@@ -34,9 +34,21 @@
                     '".$telefone."', '".$celular."', '".$email."', '".$sexo."', '".$dataNascimentoAmericana."', '".$obs."'
                 )";
 
-        // echo($queryInsertEstados);
-        echo('inseriu');
-        mysqli_query($conexao, $queryInsertEstados);
+        if(mysqli_query($conexao, $queryInsertEstados)){
+            echo("
+                <script>
+                    alert('Registro inserido com sucesso');
+                    location.href = 'intro.php';
+                </script>
+            ");
+        }
+        else {
+            echo("
+                <script>
+                    alert('Erro ao executar o script!);
+                </script>
+            ");
+        }
     }
 ?>
 
