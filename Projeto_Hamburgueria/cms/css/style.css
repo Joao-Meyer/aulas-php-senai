@@ -1,0 +1,143 @@
+body {
+    padding: 50px;
+}
+
+.fonte1 {
+    font-size: 1.2em;
+}
+
+.fonte2 {
+    font-size: 1.8em;
+}
+
+/* CMS */
+#conteinerCMS {
+    width: 1200px;
+    min-height: 800px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-top: 50px; */
+    border: black 1px solid;
+    border-radius: 30px;
+}
+
+/* Cabeçalho */
+#conteinerCabecalho {
+    width: inherit;
+    height: 200px;
+    border-bottom: black solid 1px;
+}
+
+#conteinerNomeSistema {
+    width: 800px;
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+    float: left;
+}
+
+#conteinerImagemSistema {
+    width: 400px;
+    height: 200px;
+    box-sizing: border-box;
+    padding-top: 25px;
+    float: left;
+}
+
+#conteinerImagemSistema img {
+    width: 300px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    /* background-image: url(); */
+}
+
+/* Menu */
+#conteinerMenusGerenciamento {
+    width: inherit;
+    height: 150px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    border-bottom: black 1px solid;
+}
+
+#conteinerMenuItens {
+    width: 860px;
+    height: 150px;
+    float: left;
+    padding-top: 15px;
+    box-sizing: border-box;
+    background-color: lightblue;
+}
+
+.conteinerMenuItem {
+    width: 195px;
+    height: 120px;
+    float: left;
+    margin-right: 20px;
+    /* background-color: lawngreen; */
+}
+
+.menuItemImagem {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: lightcoral;
+}
+
+.menuItemNome {
+    width: 195px;
+    height: 25px;
+    background-color: lawngreen;
+}
+
+#conteinerMensagemBemVindoLogout {
+    width: 300px;
+    height: 150px;
+    float: left;
+    background-color: khaki;
+}
+
+#conteinerMensagemBemVindo {
+    width: inherit;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+
+#conteinerLogout {
+    width: inherit;
+    height: 50px;
+    text-align: right;
+}
+
+/* Submenu */
+#conteinerSubmenusGerenciamento {
+    width: inherit;
+    /* min-height: 500px;
+    height: auto;
+    overflow: hidden; */
+    height: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+}
+
+.conteinerSubmenuItem {
+    width: 300px;
+    height: 100px;
+    float: left;
+    background-color: lightcoral;
+}
+
+/* Rodapé */
+#rodape {
+    width: inherit;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}

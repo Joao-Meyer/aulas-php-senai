@@ -5,7 +5,7 @@
 <script src="./javascript/cycle.js"></script>
 <script src="./javascript/slide.js"></script>
 
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <?php
         require_once('./modulos/menuMobile.php');
