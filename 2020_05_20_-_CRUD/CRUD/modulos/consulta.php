@@ -51,7 +51,9 @@
 
                                 <div class="maisInformacoes"></div>
 
-                                <div class="editar"></div>
+                                <a href="../paginas/intro.php?modo=consultaEditar&id=<?=$rsContatos['idContato']?>">
+                                    <div class="editar"></div>
+                                </a>
                             </div>
                         </td>
                     </tr>

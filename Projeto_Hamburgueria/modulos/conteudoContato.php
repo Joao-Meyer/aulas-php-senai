@@ -3,7 +3,7 @@
         <div id="conteinerFormulario">
             <h1>ENTRE EM CONTATO CONOSCO</h1>
 
-            <form action="contato.php">
+            <form name="formFaleConosco" action="insertFaleConosco.php?modo=inserir" method="post">
                 <div class="conteinerInput">
                     Nome:
                     <input type="text" name="inputNome" class="inputs">
@@ -36,13 +36,19 @@
 
                 <div class="conteinerInput">
                     Profissão:
-                    <input type="text" name="" class="inputs">
+                    <input type="text" name="inputProfissao" class="inputs">
                 </div>
 
-                <div class="conteinerInputTextArea">
+                <div class="conteinerInput">
+                    Desejo realizar uma: <p><br></p>
+                    <input type="radio" name="inputIntuito" id="s">Sugestão
+                    <input type="radio" name="inputIntuito" id="c">Critica
+                </div>
+
+                <!-- <div class="conteinerInputTextArea">
                     Sugestões / Críticas:
                     <textarea name="inputSugestao" cols="30" rows="10"></textarea>
-                </div>
+                </div> -->
 
                 <div class="conteinerInputTextArea">
                     Mensagem:
@@ -57,7 +63,7 @@
                 </div>
 
                 <div class="conteinerInputSubmit">
-                    <input type="submit" value="ENVIAR">
+                    <input type="submit" value="ENVIAR" name="btnEnviar">
                 </div>
             </form>
         </div>

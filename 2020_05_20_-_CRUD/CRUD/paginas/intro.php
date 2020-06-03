@@ -5,49 +5,55 @@
     // Abre a conexão com o BD
     $conexao = conexaoMysql();
 
-    // Valida se o formulário foi submetido pelo usuário
-    if(isset($_POST['buttonSubmit'])){
+    // Verifica se a variável modo existe (Ela foi enviada no CLICK do editar)
+    //na listagem dos dados
+    if(isset($_GET['modo'])){
+        // Valida se a ação de modo é para buscar um registro no BD
+        if($_GET['modo'] == 'consultaEditar'){
+            if(isset($_GET['id'])){
+                // Resgata o id do registro para buscar no BD
+                $id = $_GET['id'];
 
-        // Resgatando dados fornecidos pelo usuário pelo método POST
-        $nome = $_POST['inputNome'];
-        $endereco = $_POST['inputEndereco'];
-        $bairro = $_POST['inputBairro'];
-        $cep = $_POST['inputCep'];
-        $telefone = $_POST['inputTelefone'];
-        $celular = $_POST['inputCelular'];
-        $email = $_POST['inputEmail'];
-        $dataNascimento = explode("/", $_POST['inputDataNascimento']);
+                // Script para buscar no banco de dados pelo ID
+                // $querySelectContato = "select * from tblContatos where idContato = " . $id;
 
-        // Conversão da data brasileira para o padrão americano, pois o BD só aceita o padrão americano AA-MM-DD
-        $dataNascimentoAmericana = $dataNascimento[2]."-".$dataNascimento[1]."-".$dataNascimento[0];
-        $sexo = $_POST['inputSexo'];
-        $obs = $_POST['textAreaObs'];
-        $idEstado = $_POST['selectEstado'];
+                $querySelectContato = "
+                    select tblContatos.*
 
-        $queryInsertEstados = "insert into tblContatos
-            (
-                nome, endereco, bairro, cep, idEstado, telefone, celular, email, sexo, dtNasc, obs
-            ) 
-            values
-                (
-                    '".$nome."', '".$endereco."', '".$bairro."', '".$cep."', ".$idEstado.",
-                    '".$telefone."', '".$celular."', '".$email."', '".$sexo."', '".$dataNascimentoAmericana."', '".$obs."'
-                )";
+                    tblEstados.nome as nomeEstado
 
-        if(mysqli_query($conexao, $queryInsertEstados)){
-            echo("
-                <script>
-                    alert('Registro inserido com sucesso');
-                    location.href = 'intro.php';
-                </script>
-            ");
-        }
-        else {
-            echo("
-                <script>
-                    alert('Erro ao executar o script!);
-                </script>
-            ");
+                    from tblContatos, tblEstados
+                    
+                    where tblEstados.idEstado = tblContatos.idEstado
+                    
+                    and tblContatos.idContato = " . $id;
+                ;
+                
+                // Executa o script no BD
+                $selectDados = mysqli_query($conexao, $querySelectContato);
+
+                // Transforma o resultado do BD em um Array para manipular os dados
+                if($rsListContatos = mysqli_fetch_assoc($selectDados)){
+                    // Recuperar os dados do BD e guargar em variáveis locais para
+                    //colocar nas caixar do form
+                    $idContato = $rsListContatos['idContato'];
+                    $nome = $rsListContatos['nome'];
+                    $endereco = $rsListContatos['endereco'];
+                    $bairro = $rsListContatos['bairro'];
+                    $cep = $rsListContatos['cep'];
+                    $estado = $rsListContatos['idEstado'];
+                    $telefone = $rsListContatos['telefone'];
+                    $celular = $rsListContatos['celular'];
+                    $email = $rsListContatos['email'];
+                    $dataNascimento = $rsListContatos['dtNasc'];
+                    $sexo = strtolower($rsListContatos['sexo']);
+                    $obs = $rsListContatos['obs'];
+
+                    // Guardamos os dados do estado referentes ao contato
+                    $idEstado = $rsListContatos['idEstado'];
+                    $nomeEstado = $rsListContatos['nomeEstado'];
+                }
+            }
         }
     }
 ?>

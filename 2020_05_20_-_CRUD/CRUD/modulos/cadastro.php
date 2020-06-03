@@ -4,7 +4,7 @@
             CADASTRO DE CONTATO
         </div>
 
-        <form name="formCadastro" action="intro.php" method="post">
+        <form name="formCadastro" action="../modulos/insert_contato.php?modo=inserir" method="post">
             <div class="conteinerCampoCadastro">
                 <div class="conteinerNomeCampo">
                     Nome:
@@ -33,7 +33,7 @@
                  -->
 
                 <div class="conteinerEntradaCampo">
-                    <input type="text" name="inputNome" class="formataInput" placeholder="Insira o Nome" required>
+                    <input type="text" name="inputNome" class="formataInput" placeholder="Insira o Nome" required value="<?=$nome?>">
                 </div>
             </div>
 
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="conteinerEntradaCampo">
-                    <input type="text" name="inputEndereco" class="formataInput">
+                    <input type="text" name="inputEndereco" class="formataInput" value="<?=$endereco?>">
                 </div>
             </div>
 
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="conteinerEntradaCampo">
-                    <input type="text" name="inputBairro" class="formataInput">
+                    <input type="text" name="inputBairro" class="formataInput" value="<?=$bairro?>">
                 </div>
             </div>
 
@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="conteinerEntradaCampo">
-                    <input type="text" name="inputCep" class="formataInput">
+                    <input type="text" name="inputCep" class="formataInput" value="<?=$cep?>">
                 </div>
             </div>
 
@@ -77,6 +77,23 @@
                         <option value="">Selecione um estado</option>
 
                         <?php
+                            if(isset($_GET['modo'])){
+                                if($_GET['modo'] == 'consultaEditar'){
+                                    ?>
+                                        <option value="<?=$idEstado?>" selected>
+                                            <?=$nomeEstado?>
+                                        </option>
+                                    <?php
+                                }
+                                else {
+                                    ?>
+                                        <option value="" selected>
+                                            <?=$nomeEstado?>
+                                        </option>
+                                    <?php
+                                }
+                            }
+                            
                             // Script para listar todos os estados em ordem crescente pelo nome
                             $querySelectEstados = "select tblEstados.* from tblEstados order by tblEstados.nome";
 
@@ -111,7 +128,7 @@
                 </div>
 
                 <div class="conteinerEntradaCampo">
-                    <input type="text" name="inputTelefone" class="formataInput">
+                    <input type="text" name="inputTelefone" class="formataInput" value="<?=$telefone?>">
                 </div>
             </div>
 
@@ -121,7 +138,7 @@
                 </div>
 
                 <div class="conteinerEntradaCampo">
-                    <input type="text" name="inputCelular" class="formataInput">
+                    <input type="text" name="inputCelular" class="formataInput" value="<?=$celular?>">
                 </div>
             </div>
 
@@ -131,7 +148,7 @@
                 </div>
 
                 <div class="conteinerEntradaCampo">
-                    <input type="text" name="inputEmail" class="formataInput">
+                    <input type="text" name="inputEmail" class="formataInput" value="<?=$email?>">
                 </div>
             </div>
 
@@ -141,7 +158,7 @@
                 </div>
 
                 <div class="conteinerEntradaCampo">
-                    <input type="text" name="inputDataNascimento" class="formataInput">
+                    <input type="text" name="inputDataNascimento" class="formataInput" value="<?=$dataNascimento?>">
                 </div>
             </div>
 
@@ -151,8 +168,8 @@
                 </div>
 
                 <div class="conteinerEntradaCampo">
-                    <input type="radio" value="f" name="inputSexo">Feminino
-                    <input type="radio" value="m" name="inputSexo">Masculino
+                    <input type="radio" value="f" name="inputSexo" <?php if($sexo == 'f') echo('checked') ?> >Feminino
+                    <input type="radio" value="m" name="inputSexo" <?php echo $sexo == 'm' ? 'checked' : '' ?> >Masculino
                 </div>
             </div>
 
@@ -162,7 +179,7 @@
                 </div>
 
                 <div class="conteinerEntradaCampo">
-                    <textarea name="textAreaObs" class="textAreaObs"></textarea>
+                    <textarea name="textAreaObs" class="textAreaObs" value="<?=$obs?>"></textarea>
                 </div>
             </div>
 

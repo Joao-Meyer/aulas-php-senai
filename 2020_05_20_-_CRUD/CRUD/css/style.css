@@ -129,9 +129,19 @@
 .excluir {
     width: 30px;
     height: 30px;
+    float: left;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url(../imagens/delete-24px.svg);
+}
+
+.editar {
+    width: 30px;
+    height: 30px;
+    float: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../imagens/editar.png);
 }
 
 /* Footer */

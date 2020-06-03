@@ -69,7 +69,7 @@ body {
     float: left;
     padding-top: 15px;
     box-sizing: border-box;
-    background-color: lightblue;
+    /* background-color: lightblue; */
 }
 
 .conteinerMenuItem {
@@ -86,20 +86,27 @@ body {
     margin-bottom: 5px;
     margin-left: auto;
     margin-right: auto;
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
+}
+
+.menuItemImagem img {
+    width: 90px;
+    height: 90px;
 }
 
 .menuItemNome {
     width: 195px;
     height: 25px;
-    background-color: lawngreen;
+    /* background-color: lawngreen; */
+    text-align: center;
+    font-size: 1.4em;
 }
 
 #conteinerMensagemBemVindoLogout {
     width: 300px;
     height: 150px;
     float: left;
-    background-color: khaki;
+    /* background-color: khaki; */
 }
 
 #conteinerMensagemBemVindo {
