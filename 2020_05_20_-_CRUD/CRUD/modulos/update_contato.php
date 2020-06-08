@@ -1,7 +1,7 @@
 <?php
     // Verifica se existe a variável modo
     if(isset($_GET['modo'])){
-        if($_GET['modo'] == 'inserir'){
+        if($_GET['modo'] == 'atualizar'){
             // Import da biblioteca de conexão
             require_once('conexaoBD.php');
 
@@ -10,7 +10,9 @@
 
             // Valida se o formulário foi submetido pelo usuário
             if(isset($_POST['buttonSubmit'])){
-
+                // A variável foi enviada pelo Form da página index que é a PK do registro que precisa atualizar
+                $id = $_GET['id'];
+    
                 // Resgatando dados fornecidos pelo usuário pelo método POST
                 $nome = $_POST['inputNome'];
                 $endereco = $_POST['inputEndereco'];
@@ -27,17 +29,22 @@
                 $obs = $_POST['textAreaObs'];
                 $idEstado = $_POST['selectEstado'];
 
-                $queryInsertEstados = "insert into tblContatos
-                    (
-                        nome, endereco, bairro, cep, idEstado, telefone, celular, email, sexo, dtNasc, obs
-                    ) 
-                    values
-                        (
-                            '".$nome."', '".$endereco."', '".$bairro."', '".$cep."', ".$idEstado.",
-                            '".$telefone."', '".$celular."', '".$email."', '".$sexo."', '".$dataNascimentoAmericana."', '".$obs."'
-                        )";
-                
-                if(mysqli_query($conexao, $queryInsertEstados)){
+                $queryUpdateEstados = "update tblContatos set 
+                                                                nome = '".$nome."',
+                                                                endereco = '".$endereco."',
+                                                                bairro = '".$bairro."',
+                                                                cep = '".$cep."',
+                                                                idEstado = ".$idEstado.",
+                                                                telefone = '".$telefone."',
+                                                                celular = '".$celular."',
+                                                                email = '".$email."',
+                                                                sexo = '".$sexo."',
+                                                                dtNasc = '".$dataNascimentoAmericana."',
+                                                                obs = '".$obs."'
+                                                                
+                                                                where idContato = " . $id;
+                echo($queryUpdateEstados);
+                if(mysqli_query($conexao, $queryUpdateEstados)){
                     echo("
                         <script>
                             alert('Registro inserido com sucesso');

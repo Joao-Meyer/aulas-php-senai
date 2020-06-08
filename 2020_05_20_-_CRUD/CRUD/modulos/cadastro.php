@@ -4,7 +4,7 @@
             CADASTRO DE CONTATO
         </div>
 
-        <form name="formCadastro" action="../modulos/insert_contato.php?modo=inserir" method="post">
+        <form name="formCadastro" action="<?=$action?>" method="post">
             <div class="conteinerCampoCadastro">
                 <div class="conteinerNomeCampo">
                     Nome:
@@ -74,8 +74,6 @@
 
                 <div class="conteinerEntradaCampo">
                     <select name="selectEstado">
-                        <option value="">Selecione um estado</option>
-
                         <?php
                             if(isset($_GET['modo'])){
                                 if($_GET['modo'] == 'consultaEditar'){
@@ -85,17 +83,17 @@
                                         </option>
                                     <?php
                                 }
-                                else {
-                                    ?>
-                                        <option value="" selected>
-                                            <?=$nomeEstado?>
-                                        </option>
-                                    <?php
-                                }
+                            }
+                            else {
+                                ?>
+                                    <option value="" selected>
+                                        Selecione um item
+                                    </option>
+                                <?php
                             }
                             
                             // Script para listar todos os estados em ordem crescente pelo nome
-                            $querySelectEstados = "select tblEstados.* from tblEstados order by tblEstados.nome";
+                            $querySelectEstados = "select tblEstados.* from tblEstados where idEstado <> ".$idEstado." order by nome";
 
                             // Executa script no banco de dados
                             $selectEstados = mysqli_query($conexao, $querySelectEstados);
@@ -158,7 +156,7 @@
                 </div>
 
                 <div class="conteinerEntradaCampo">
-                    <input type="text" name="inputDataNascimento" class="formataInput" value="<?=$dataNascimento?>">
+                    <input type="text" name="inputDataNascimento" class="formataInput" value="<?=$dataNascimentoBrasileiro?>">
                 </div>
             </div>
 

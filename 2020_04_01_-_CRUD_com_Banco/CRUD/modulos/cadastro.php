@@ -78,7 +78,7 @@
 
                         <?php
                             // Script para listar todos os estados em ordem crescente pelo nome
-                            $querySelectEstados = "select tblEstados.* from tblEstados order by tblEstados.nome";
+                            $querySelectEstados = "select tblEstados.* from tblEstados where idEstado <> ".$idEstado." order by tblEstados.nome";
 
                             // Executa script no banco de dados
                             $selectEstados = mysqli_query($conexao, $querySelectEstados);
