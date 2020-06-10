@@ -26,43 +26,35 @@
             <div id="conteinerMenusGerenciamento">
                 <div id="conteinerMenuItens">
                     <div class="conteinerMenuItem">
-                        <a href="adm_conteudo.php">
-                            <div class="menuItemImagem">
-                                <img src="./imagens/gerencia_icone_preto_sem_fundo.png" alt="Icone da opção">
-                            </div>
+                        <div class="menuItemImagem">
+                            <img src="./imagens/gerencia_icone_sem_fundo.png" alt="Icone da opção">
+                        </div>
 
-                            <div class="menuItemNome">Adm. Conteúdo</div>
-                        </a>
+                        <div class="menuItemNome">Adm. Conteúdo</div>
                     </div>
 
                     <div class="conteinerMenuItem">
-                        <a href="adm_produtos.php">
-                            <div class="menuItemImagem">
-                                <img src="./imagens/comida-rapida.png" alt="Icone da opção">
-                            </div>
+                        <div class="menuItemImagem">
+                            <img src="./imagens/mensagem.png" alt="Icone da opção">
+                        </div>
 
-                            <div class="menuItemNome">Adm. Produtos</div>
-                        </a>
+                        <div class="menuItemNome">Adm. Produtos</div>
                     </div>
 
                     <div class="conteinerMenuItem">
-                        <a href="adm_usuarios.php">
-                            <div class="menuItemImagem">
-                                <img src="./imagens/reparar_icon.png" alt="Icone da opção">
-                            </div>
+                        <div class="menuItemImagem">
+                            <img src="./imagens/reparar_icon.png" alt="Icone da opção">
+                        </div>
 
-                            <div class="menuItemNome">Adm. Usuários</div>
-                        </a>
+                        <div class="menuItemNome">Adm. Usuários</div>
                     </div>
 
                     <div class="conteinerMenuItem">
-                        <a href="adm_fale_conosco.php">
-                            <div class="menuItemImagem">
-                                <img src="./imagens/mensagem.png" alt="Icone da opção">
-                            </div>
+                        <div class="menuItemImagem">
+                            <img src="./imagens/mensagem.png" alt="Icone da opção">
+                        </div>
 
-                            <div class="menuItemNome">Adm. Fale conosco</div>
-                        </a>
+                        <div class="menuItemNome">Adm. Fale conosco</div>
                     </div>
                 </div>
 
@@ -76,7 +68,7 @@
             </div>
 
             <div id="conteinerSubmenusGerenciamento">
-                <!-- <div class="conteinerSubmenuItem"></div> -->
+                <div class="conteinerSubmenuItem"></div>
             </div>
 
             <div id="rodape">

@@ -1,3 +1,10 @@
+<?php
+    require_once("./modulos/conexaoBD.php");
+    $conexao = conexaoMysql();
+    echo($conexao);
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="pt-br">

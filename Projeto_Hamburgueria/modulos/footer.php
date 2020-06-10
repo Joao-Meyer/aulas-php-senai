@@ -1,5 +1,7 @@
 <footer>
-    <div id="conteinerSistemaInterno"> Sistema Interno </div>
+    <div id="conteinerSistemaInterno">
+        <a href="cms/intro.php">Sistema Interno</a>
+    </div>
 
     <div id="conteinerEndereco"> Endereço xxxxxxxx-xxxxxxxxxxxxx </div>
 
