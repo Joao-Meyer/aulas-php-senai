@@ -3,7 +3,7 @@
         $server = 'localhost';
         $user = 'root';
         $password = 'bcd127';
-        $database = 'dbHonkerBurguer';
+        $database = 'dbHonkerBurger';
 
         $conexao = mysqli_connect($server, $user, $password, $database);
 

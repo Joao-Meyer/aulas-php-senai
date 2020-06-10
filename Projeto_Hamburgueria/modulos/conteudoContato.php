@@ -3,7 +3,7 @@
         <div id="conteinerFormulario">
             <h1>ENTRE EM CONTATO CONOSCO</h1>
 
-            <form name="formFaleConosco" action="insertFaleConosco.php?modo=inserir" method="post">
+            <form name="formFaleConosco" action="./modulos/insertFaleConosco.php?modo=inserir" method="post">
                 <div class="conteinerInput">
                     Nome:
                     <input type="text" name="inputNome" class="inputs">

@@ -25,6 +25,26 @@
                     '".$homePage."', '".$facebook."', '".$profissao."', '".$intuito."',
                     '".$mensagem."', '".$genero."'
                 );";
+
+                if(mysqli_query($conexao, $queryInsertOpiniao)){
+                    echo("
+                        <script>
+                            alert('Registro inserido com sucesso');
+                            // location.href = '../paginas/intro.php';
+                            window.history.back();
+                        </script>
+                    ");
+                }
+                else {
+                    echo("
+                        <script>
+                            alert('Erro ao executar o script!);
+                            // Permite volar a pagina anterior sem perder
+                            //os dados digitados no formulário
+                            window.history.back();
+                        </script>
+                    ");
+                }
             }
         }
     }

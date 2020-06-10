@@ -1,8 +1,14 @@
 <?php
     require_once("./modulos/conexaoBD.php");
     $conexao = conexaoMysql();
-    echo($conexao);
+    
+    $sqlQuerySelect = "select * from tblFaleConosco";
 
+    $select = mysqli_query($conexao, $sqlQuerySelect);
+
+    while($rsSelect = mysqli_fetch_assoc($select)){
+        echo($rsSelect['nome']);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -78,12 +84,15 @@
                         Bem vindo, [XXXX]
                     </div>
 
-                    <div id="conteinerLogout" class="fonte1">Logout</div>
+                    <div id="conteinerLogout" class="fonte1">
+                        <a href="../super.php">Logout</a>
+                    </div>
                 </div>
             </div>
 
             <div id="conteinerSubmenusGerenciamento">
                 <!-- <div class="conteinerSubmenuItem"></div> -->
+                <!-- <div class="" -->
             </div>
 
             <div id="rodape">
