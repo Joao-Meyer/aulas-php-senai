@@ -41,8 +41,8 @@
 
                 <div class="conteinerInput">
                     Desejo realizar uma: <p><br></p>
-                    <input type="radio" name="inputIntuito" id="s">Sugestão
-                    <input type="radio" name="inputIntuito" id="c">Critica
+                    <input type="radio" name="inputIntuito" value="s" id="s">Sugestão
+                    <input type="radio" name="inputIntuito" value="c" id="c">Critica
                 </div>
 
                 <!-- <div class="conteinerInputTextArea">
@@ -57,9 +57,9 @@
 
                 <div class="conteinerInput">
                     Sexo: <p><br></p>
-                    <input type="radio" name="inputSexo" id="m">Masculino
-                    <input type="radio" name="inputSexo" id="f">Feminino
-                    <input type="radio" name="inputSexo" id="x">Outro
+                    <input type="radio" name="inputSexo" value="m" id="m">Masculino
+                    <input type="radio" name="inputSexo" value="f" id="f">Feminino
+                    <input type="radio" name="inputSexo" value="x" id="x">Outro
                 </div>
 
                 <div class="conteinerInputSubmit">
