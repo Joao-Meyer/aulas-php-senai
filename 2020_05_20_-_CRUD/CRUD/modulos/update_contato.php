@@ -43,7 +43,7 @@
                                                                 obs = '".$obs."'
                                                                 
                                                                 where idContato = " . $id;
-                echo($queryUpdateEstados);
+                // echo($queryUpdateEstados);
                 if(mysqli_query($conexao, $queryUpdateEstados)){
                     echo("
                         <script>

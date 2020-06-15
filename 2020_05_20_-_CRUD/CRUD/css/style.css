@@ -144,6 +144,95 @@
     background-image: url(../imagens/editar.png);
 }
 
+.visualizar {
+    width: 30px;
+    height: 30px;
+    float: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../imagens/visualizar.png);
+}
+
+#modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    position: fixed;
+    display: none;
+}
+
+.fechar {
+    width: 30px;
+    height: 30px;
+    float: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../imagens/fechar.png);
+}
+
+#modalConteudo {
+    width: 1000px;
+    min-height: 300px;
+    margin-top: 100px;
+    box-sizing: border-box;
+    padding: 50px;
+    height: auto;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+}
+
+#conteudoContato {
+    width: 800px;
+    min-height: 300px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(0, 122, 233, 0.2);
+}
+
+#nomes {
+    width: 180px;
+    min-height: 300px;
+    height: auto;
+    float: left;
+}
+
+.nomeInformacao {
+    width: 180px;
+    min-height: 30px;
+    height: auto;
+    box-sizing: border-box;
+    padding-left: 20px;
+    /* text-align: center; */
+    font-size: 1.3em;
+    line-height: 1.3em;
+    border: 1px solid black;
+    /* background-color: aqua; */
+}
+
+#informacoes {
+    width: 620px;
+    min-height: 300px;
+    height: auto;
+    float: left;
+}
+
+.informacao {
+    width: 620px;
+    min-height: 30px;
+    height: auto;
+    box-sizing: border-box;
+    padding-left: 20px;
+    /* text-align: center; */
+    font-size: 1.3em;
+    line-height: 1.3em;
+    border: 1px solid black;
+    /* background-color: aqua; */
+}
+
 /* Footer */
 footer {
     width: 100%;

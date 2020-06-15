@@ -14,7 +14,7 @@
 
     // Variável para ser colocada no action do Form, conforme a ação para inserir um registro novo
     $action = "../modulos/insert_contato.php?modo=inserir";
-    echo('Mudou o action para '.$action);
+    // echo('Mudou o action para '.$action);
 
     // Import da biblioteca de conexão
     require_once('../modulos/conexaoBD.php');
@@ -76,7 +76,7 @@
                     // Ação que será colocada no Form para atualizar o registro que está sendo visualizado,
                     //estamos enviando para a página update o id do registro
                     $action = "../modulos/update_contato.php?modo=atualizar&id=".$rsListContatos['idContato'];
-                    echo('Mudou o action para '.$action);
+                    // echo('Mudou o action para '.$action);
                 }
             }
         }
@@ -94,6 +94,13 @@
     ?>
 </head>
 <body>
+    <div id="modal">
+        <a class="fechar"></a>
+
+        <div id="modalConteudo">
+        </div>
+    </div>
+
     <?php
         require_once('../modulos/header.php');
     ?>

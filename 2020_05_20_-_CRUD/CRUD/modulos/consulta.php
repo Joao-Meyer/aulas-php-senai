@@ -49,7 +49,9 @@
                                     <div class="excluir"></div>
                                 </a>
 
-                                <div class="maisInformacoes"></div>
+                                <!-- <a href="../paginas/intro.php?modo=consultaEditar&id=<?=$rsContatos['idContato']?>"> -->
+                                    <div class="visualizar" onclick="visualizarContato(<?=$rsContatos['idContato']?>);"></div>
+                                <!-- </a> -->
 
                                 <a href="../paginas/intro.php?modo=consultaEditar&id=<?=$rsContatos['idContato']?>">
                                     <div class="editar"></div>
