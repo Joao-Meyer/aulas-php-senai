@@ -53,6 +53,11 @@
     </head>
 
     <body>
+        <div id="modal">
+            <div id="modalConteudo">
+            </div>
+        </div>
+
         <div id="conteinerCMS">
             <div id="conteinerCabecalho">
                 <div id="conteinerNomeSistema" class="fonte2">
@@ -153,10 +158,13 @@
                                                                     }
                                                                 ?></div>
                                 <div class="comentarioMensagem"><?=$rsSelect['mensagem']?></div>
+
                                 <a onclick="return confirm('Deseja realmente excluir o registro?');"
                                 href="./modulos/deletar.php?modo=excluir&id=<?=$rsSelect['idFaleConosco']?>&tabela=tblFaleConosco&coluna=idFaleConosco&url=<?=$url?>">
                                     <div class="excluir"></div>
                                 </a>
+
+                                <div class="visualizar" onclick="visualizarFaleConosco(<?=$rsSelect['idFaleConosco']?>);"></div>
                             </div>
                         <?php
                         // echo($rsSelect['nome']);

@@ -79,17 +79,7 @@
 
             <div id="conteinerSubmenusGerenciamento">
                 <div class="conteinerMenuItem">
-                    <a href="modulos/visualizar_usuarios.php">
-                        <div class="menuItemImagem">
-                            <img src="./imagens/do_utilizador.png" alt="Icone da opção">
-                        </div>
-
-                        <div class="menuItemNome">Usuários</div>
-                    </a>
-                </div>
-
-                <div class="conteinerMenuItem">
-                    <a href="modulos/visualizar_niveis_acesso.php">
+                    <a href="adm_usuarios.php">
                         <div class="menuItemImagem">
                             <img src="./imagens/habilidades.png" alt="Icone da opção">
                         </div>
