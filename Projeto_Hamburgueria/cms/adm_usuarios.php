@@ -79,7 +79,7 @@
 
             <div id="conteinerSubmenusGerenciamento">
                 <div class="conteinerMenuItem">
-                    <a href="modulos/visualizar_usuarios.php">
+                    <a href="pagina_usuarios.php">
                         <div class="menuItemImagem">
                             <img src="./imagens/do_utilizador.png" alt="Icone da opção">
                         </div>
@@ -89,7 +89,7 @@
                 </div>
 
                 <div class="conteinerMenuItem">
-                    <a href="modulos/visualizar_niveis_acesso.php">
+                    <a href="pagina_niveis_acesso.php">
                         <div class="menuItemImagem">
                             <img src="./imagens/habilidades.png" alt="Icone da opção">
                         </div>

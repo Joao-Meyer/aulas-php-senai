@@ -1,0 +1,250 @@
+/* Header */
+#conteinerHeader {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 50px;
+    background-color: #24ACF2;
+}
+
+/* Seção Cadastro */
+#conteinerSecaoCadastro {
+    width: 100%;
+    min-height: 200px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+#conteinerCadastro {
+    width: 500px;
+    min-height: 100px;
+    box-sizing: border-box;
+    padding: 10px;
+    height: auto;
+    border: #000000 solid 2px;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: black 5px 0px 5px 0px;
+}
+
+#conteinerTituloCadastro {
+    width: 450px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3px;
+    border-radius: 5px;
+    background-color: #2f5491;
+    text-align: center;
+    font-size: 1.8em;
+    line-height: 50px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.conteinerCampoCadastro {
+    width: 480px;
+    height: 50px;
+    margin-bottom: 3px;
+}
+
+.conteinerNomeCampo {
+    width: 120px;
+    height: 50px;
+    float: left;
+    border-radius: 5px;
+    background-color: #64A8D6;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 50px;
+}
+
+.conteinerEntradaCampo {
+    width: 360px;
+    height: 50px;
+    box-sizing: border-box;
+    float: left;
+    line-height: 50px;
+    padding-left: 10px;
+}
+
+.formataInput {
+    width: 300px;
+    height: 25px;
+}
+
+.nomeGrande {
+    font-size: 0.8em;
+}
+
+.textAreaObs {
+    width: 300px;
+    height: 45px;
+    resize: none;
+}
+
+#buttonSubmit {
+    width: 100px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: #ffffff;
+    background-color: #2f5491;
+}
+
+/* Seção Consulta */
+#conteinerSecaoConsulta {
+    width: 100%;
+    min-height: 200px;
+    height: auto;
+    margin-bottom: 50px;
+}
+
+#conteinerTituloConsulta {
+    width: 1200px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background-color: #2f5491;
+    text-align: center;
+    font-size: 1.8em;
+    line-height: 50px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#conteinerConsulta {
+    width: 1200px;
+    min-height: 100px;
+    height: auto;
+    border: 2px solid #000000;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tblColuna {
+    width: 200px;
+}
+
+.imagens {
+    width: 50px;
+    height: 50px;
+}
+
+.excluir {
+    width: 30px;
+    height: 30px;
+    float: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../imagens/delete-24px.svg);
+}
+
+.editar {
+    width: 30px;
+    height: 30px;
+    float: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../imagens/editar.png);
+}
+
+.visualizar {
+    width: 30px;
+    height: 30px;
+    float: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../imagens/visualizar.png);
+}
+
+#modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    position: fixed;
+    display: none;
+}
+
+.fechar {
+    width: 30px;
+    height: 30px;
+    float: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../imagens/fechar.png);
+}
+
+#modalConteudo {
+    width: 1000px;
+    min-height: 300px;
+    margin-top: 100px;
+    box-sizing: border-box;
+    padding: 50px;
+    height: auto;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+}
+
+#conteudoContato {
+    width: 800px;
+    min-height: 300px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(0, 122, 233, 0.2);
+}
+
+#nomes {
+    width: 180px;
+    min-height: 300px;
+    height: auto;
+    float: left;
+}
+
+.nomeInformacao {
+    width: 180px;
+    min-height: 30px;
+    height: auto;
+    box-sizing: border-box;
+    padding-left: 20px;
+    /* text-align: center; */
+    font-size: 1.3em;
+    line-height: 1.3em;
+    border: 1px solid black;
+    /* background-color: aqua; */
+}
+
+#informacoes {
+    width: 620px;
+    min-height: 300px;
+    height: auto;
+    float: left;
+}
+
+.informacao {
+    width: 620px;
+    min-height: 30px;
+    height: auto;
+    box-sizing: border-box;
+    padding-left: 20px;
+    /* text-align: center; */
+    font-size: 1.3em;
+    line-height: 1.3em;
+    border: 1px solid black;
+    /* background-color: aqua; */
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    height: 50px;
+    background-color: #24ACF2;
+}
