@@ -1,0 +1,449 @@
+body {
+    padding: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.fonte1 {
+    font-size: 1.2em;
+}
+
+.fonte2 {
+    font-size: 1.8em;
+}
+
+/* CMS */
+#conteinerCMS {
+    width: 1200px;
+    min-height: 800px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-top: 50px; */
+    border: black 1px solid;
+    border-radius: 30px;
+}
+
+/* Cabeçalho */
+#conteinerCabecalho {
+    width: inherit;
+    height: 200px;
+    border-bottom: black solid 1px;
+}
+
+#conteinerNomeSistema {
+    width: 800px;
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+    float: left;
+}
+
+#conteinerImagemSistema {
+    width: 400px;
+    height: 200px;
+    box-sizing: border-box;
+    padding-top: 25px;
+    float: left;
+}
+
+#conteinerImagemSistema img {
+    width: 300px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    /* background-image: url(); */
+}
+
+/* Menu */
+#conteinerMenusGerenciamento {
+    width: inherit;
+    height: 150px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    border-bottom: black 1px solid;
+}
+
+#conteinerMenuItens {
+    width: 860px;
+    height: 150px;
+    float: left;
+    padding-top: 15px;
+    box-sizing: border-box;
+    /* background-color: lightblue; */
+}
+
+.conteinerMenuItem {
+    width: 195px;
+    height: 120px;
+    float: left;
+    margin-right: 20px;
+    box-sizing: border-box;
+    /* background-color: lawngreen; */
+    border-radius: 5px;
+    border: solid 1px black;
+}
+
+.conteinerMenuItem:hover {
+    background-color: rgba(46, 178, 255, 0.5);
+}
+
+.menuItemImagem {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    /* background-color: lightcoral; */
+}
+
+.menuItemImagem img {
+    width: 90px;
+    height: 90px;
+}
+
+.menuItemNome {
+    width: 195px;
+    height: 25px;
+    /* background-color: lawngreen; */
+    text-align: center;
+    font-size: 1.4em;
+}
+
+#conteinerMensagemBemVindoLogout {
+    width: 300px;
+    height: 150px;
+    float: left;
+    /* background-color: khaki; */
+}
+
+#conteinerMensagemBemVindo {
+    width: inherit;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+
+#conteinerLogout {
+    width: inherit;
+    height: 50px;
+    text-align: right;
+}
+
+/* Submenu */
+#conteinerSubmenusGerenciamento {
+    width: inherit;
+    /* min-height: 500px;
+    height: auto;
+    overflow: hidden; */
+    height: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+}
+
+/* Nivel de acesso */
+.conteinerCadastro {
+    width: 300px;
+    min-height: 100px;
+    height: auto;
+    border: solid 1px black;
+    box-sizing: border-box;
+    padding: 10px;
+    padding-top: 0px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    /* display: none; */
+    /* background-color: blueviolet; */
+}
+
+.tituloCadastro {
+    text-align: center;
+    background-color: cadetblue;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.inputBox {
+    width: 100%;
+    height: 25px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    /* background-color: burlywood; */
+}
+
+.nivelAcessoNome {
+    width: 280px;
+    height: 30px;
+    border: 1px black solid;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+    float: left;
+}
+
+.nivelAcessoPermissao{
+    width: 190px;
+    height: 30px;
+    border: 1px black solid;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+    float: left;
+}
+
+/* Usuário */
+.usuarioNome {
+    width: 260px;
+    height: 30px;
+    border: 1px black solid;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+    float: left;
+}
+
+.usuarioLogin {
+    width: 260px;
+    height: 30px;
+    border: 1px black solid;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+    float: left;
+}
+
+.usuarioSenha {
+    width: 260px;
+    height: 30px;
+    border: 1px black solid;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+    float: left;
+}
+
+.usuarioNivelAcesso {
+    width: 260px;
+    height: 30px;
+    border: 1px black solid;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+    float: left;
+}
+
+/* .botaoRegistrar {
+    background-color: #ff0956;
+    border-radius: 10px;
+    height: 30px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+/* Fale Conosco */
+.conteinerComentario {
+    width: 1160px;
+    min-height: 30px;
+    height: auto;
+    float: left;
+    /* background-color: lightcoral; */
+}
+
+.comentarioNome {
+    width: 278px;
+    height: 30px;
+    border: 1px black solid;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+    float: left;
+}
+
+.comentarioCelular {
+    width: 140px;
+    height: 30px;
+    border: 1px black solid;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+    float: left;
+}
+
+.comentarioEmail {
+    width: 278px;
+    height: 30px;
+    border: 1px black solid;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+    float: left;
+}
+
+.comentarioIntuito {
+    width: 96px;
+    height: 30px;
+    border: 1px black solid;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+    float: left;
+}
+
+.comentarioMensagem {
+    width: 290px;
+    height: 30px;
+    border: 1px black solid;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+    float: left;
+    overflow: hidden;
+}
+
+.excluir {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    float: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../imagens/delete-24px.svg);
+}
+
+.visualizar {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    float: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../imagens/visualizar.png);
+}
+
+.editar {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    float: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../imagens/editar.png);
+}
+
+/* Modal */
+#modal {
+    width: 100%;
+    height: 100%;
+    margin-top: -50px;
+    margin-left: -50px;
+    box-sizing: border-box;
+    padding-top: 50px;
+    position: fixed;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.fechar {
+    width: 30px;
+    height: 30px;
+    float: left;
+    position: fixed;
+    z-index: 999;
+    margin-left: 1060px;
+    margin-top: -80px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../imagens/fechar.png);
+}
+
+#modalConteudo {
+    width: 1000px;
+    min-height: 300px;
+    height: auto;
+    box-sizing: border-box;
+    padding: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+#conteudoModal {
+    width: 900px;
+    min-height: 300px;
+    height: auto;
+    overflow: hidden;
+    background-color: rgba(0, 136, 204, 0.2);
+}
+
+.tituloModal {
+    width: 900px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    line-height: 1.2em;
+    text-align: center;
+}
+
+#conteinerCampoModal {
+    width: 300px;
+    min-height: 300px;
+    overflow: hidden;
+    height: auto;
+    float: left;
+}
+
+.campoModal {
+    width: 300px;
+    height: 30px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    border: 1px solid black;
+    line-height: 1.2em;
+}
+
+.informacaoModal {
+    width: 600px;
+    height: 30px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    border: 1px solid black;
+    line-height: 1.2em;
+}
+
+#conteinerInformacoes {
+    width: 600px;
+    min-height: 300px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+}
+
+/* Rodapé */
+#rodape {
+    width: inherit;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
