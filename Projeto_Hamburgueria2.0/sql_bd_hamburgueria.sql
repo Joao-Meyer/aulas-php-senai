@@ -80,8 +80,10 @@ insert into tblUsuario (
 insert into tblUsuario (
 	nome, login, senha, idNivelAcesso) 
     values (
-		'Convidado', 'aluno', '123', '1');
+		'Convidado', 'aluno', '123', '2');
         
 select * from tblUsuario;
 
 show tables;
+
+delete from tblNivelAcesso where idNivelAcesso = 2; 

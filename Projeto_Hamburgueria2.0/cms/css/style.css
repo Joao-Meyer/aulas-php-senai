@@ -137,10 +137,10 @@ a {
 /* Submenu */
 #conteinerSubmenusGerenciamento {
     width: inherit;
-    /* min-height: 500px;
+    min-height: 500px;
     height: auto;
-    overflow: hidden; */
-    height: 500px;
+    overflow: hidden;
+    /* height: 500px; */
     padding: 20px;
     box-sizing: border-box;
     border-bottom: 1px solid black;
@@ -379,7 +379,7 @@ a {
 
 #modalConteudo {
     width: 1000px;
-    min-height: 300px;
+    min-height: 100px;
     height: auto;
     box-sizing: border-box;
     padding: 50px;
@@ -391,7 +391,7 @@ a {
 
 #conteudoModal {
     width: 900px;
-    min-height: 300px;
+    min-height: 100px;
     height: auto;
     overflow: hidden;
     background-color: rgba(0, 136, 204, 0.2);
@@ -408,7 +408,7 @@ a {
 
 #conteinerCampoModal {
     width: 300px;
-    min-height: 300px;
+    min-height: 100px;
     overflow: hidden;
     height: auto;
     float: left;
@@ -434,7 +434,7 @@ a {
 
 #conteinerInformacoes {
     width: 600px;
-    min-height: 300px;
+    min-height: 100px;
     height: auto;
     overflow: hidden;
     float: left;

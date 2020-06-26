@@ -61,7 +61,7 @@
     }
     $select = mysqli_query($conexao, $sqlQuerySelect);
 
-    $action = "modulos/inserir.php?modo=inserir&url=<?=$url?>";
+    $action = "modulos/inserir_usuario.php?modo=inserir&url=".$url;
 
     $nome = null;
     $login = null;
@@ -91,7 +91,7 @@
                     $idNivelAcesso = $rsInfoUsuario['idNivelAcesso'];
                     $nomeNivel = $rsInfoUsuario['nomeNivel'];
 
-                    $action = "modulos/atualizar.php?modo=atualizar&id=".$rsInfoUsuario['idUsuario']."&url=".$url;
+                    $action = "modulos/atualizar.php?modo=atualizar&id=".$rsInfoUsuario['idUsuario']."&url=".$url."&origem=pagina_usuarios";
                 }
             }
         }
@@ -110,6 +110,11 @@
     </head>
 
     <body>
+        <div id="modal">
+            <div id="modalConteudo">
+            </div>
+        </div>
+
         <div id="conteinerCMS">
             <div id="conteinerCabecalho">
                 <div id="conteinerNomeSistema" class="fonte2">
@@ -204,7 +209,11 @@
                                             ?>
                                                 <option value="<?=$idNivelAcesso?>"><?=$nomeNivel?></option>        
                                             <?php
-                                            
+                                            $sqlQuerySelectNiveisAcesso = "
+                                                select * from tblNivelAcesso
+                                                where not (idNivelAcesso = ".$idNivelAcesso.")
+                                                order by nomeNivel;
+                                            ";
                                         }
                                     }
                                     else{
@@ -214,7 +223,6 @@
                                     }
                                     $sqlQuerySelectNiveisAcesso = "
                                         select * from tblNivelAcesso
-                                        where idNivelAcesso <> ".$idNivelAcesso."
                                         order by nomeNivel;
                                     ";
                                     
@@ -271,24 +279,14 @@
                                     <div class="excluir"></div>
                                 </a>
 
-                                <div class="visualizar" onclick="visualizarFaleConosco(<?=$rsSelect['idUsuario']?>);"></div>
+                                <div class="visualizar" onclick="visualizarUsuario(<?=$rsSelect['idUsuario']?>);"></div>
 
                                 <a href="pagina_usuarios.php?modo=editar&id=<?=$rsSelect['idUsuario']?>">
                                     <div class="editar"></div>
                                 </a>
                             </div>
                         <?php
-                        // echo($rsSelect['nome']);
-                        // echo($rsSelect['telefone']);
-                        // echo($rsSelect['celular']);
-                        // echo($rsSelect['email']);
-                        // echo($rsSelect['homePage']);
-                        // echo($rsSelect['linkFacebook']);
-                        // echo($rsSelect['profissao']);
-                        // echo($rsSelect['intuito']);
-                        // echo($rsSelect['mensagem']);
-                        // echo($rsSelect['genero']);
-                    }
+                    }   
                 ?>
             </div>
 

@@ -38,10 +38,24 @@
     function visualizarUsuario(idUsuario){
         $.ajax({
             type: "POST",
-            url: "modulos/visualizar_fale_conosco.php",
+            url: "modulos/visualizar_usuario.php",
             data: {
                 modo: "visualizar",
-                id: idContato 
+                id: idUsuario 
+            },
+            success: function(dados){
+                $('#modalConteudo').html(dados);
+            }
+        });
+    }
+
+    function visualizarNivelAcesso(idNivelAcesso){
+        $.ajax({
+            type: "POST",
+            url: "modulos/visualizar_nivel_acesso.php",
+            data: {
+                modo: "visualizar",
+                id: idNivelAcesso 
             },
             success: function(dados){
                 $('#modalConteudo').html(dados);

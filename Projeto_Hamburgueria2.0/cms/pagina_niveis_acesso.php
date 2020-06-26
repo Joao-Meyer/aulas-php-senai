@@ -5,9 +5,88 @@
     $dominio= $_SERVER['HTTP_HOST'];
     $url = "http://" . $dominio. $_SERVER['REQUEST_URI'];
 
-    $sqlQuerySelectNiveis = "select * from tblNivelAcesso;";
+    if(isset($_POST['btnFiltrar'])){
+        if($_GET['modo']){
+            if($_GET['modo'] == 'filtrar'){
+                $filtro = $_POST['inputFiltro'];
+
+                switch($filtro){
+                    case "c":
+                        $sqlQuerySelectNiveis = "select tblNivelAcesso.*
+                            from tblNivelAcesso
+                            where tblNivelAcesso.acessoConteudo = 1
+                            order by tblNivelAcesso.nomeNivel";
+                    break;
+
+                    case "f":
+                        $sqlQuerySelectNiveis = "select tblNivelAcesso.*
+                            from tblNivelAcesso
+                            where tblNivelAcesso.acessoFaleConosco = 1
+                            order by tblNivelAcesso.nomeNivel";
+                    break;
+
+                    case "p":
+                        $sqlQuerySelectNiveis = "select tblNivelAcesso.*
+                            from tblNivelAcesso
+                            where tblNivelAcesso.acessoProduto = 1
+                            order by tblNivelAcesso.nomeNivel";
+                    break;
+
+                    case "u":
+                        $sqlQuerySelectNiveis = "select tblNivelAcesso.*
+                            from tblNivelAcesso
+                            where tblNivelAcesso.acessoUsuarios = 1
+                            order by tblNivelAcesso.nomeNivel";
+                    break;
+
+                    default:                    
+                        $sqlQuerySelectNiveis = "select * from tblNivelAcesso 
+                        order by tblNivelAcesso.nomeNivel";
+                    break;
+                }
+            }
+        }
+    }
+    else{
+        $sqlQuerySelectNiveis = "select * from tblNivelAcesso order by tblNivelAcesso.nomeNivel";
+    }
 
     $querySelectNiveis = mysqli_query($conexao, $sqlQuerySelectNiveis);
+
+    $action = "modulos/inserir_nivel_acesso.php?modo=inserir&url=" .$url;
+
+    $idNivelAcesso = null;
+    $nomeNivel = null;
+    $acessoConteudo = null;
+    $acessoFaleConosco = null;
+    $acessoProdutos = null;
+    $acessoUsuarios = null;
+
+    if(isset($_GET['modo'])){
+        if($_GET['modo'] == 'editar'){
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+
+                $querySelectNivel = "
+                    select tblNivelAcesso.*
+                    from tblNivelAcesso
+                    where tblNivelAcesso.idNivelAcesso = ".$id;
+                
+                $selectDados = mysqli_query($conexao, $querySelectNivel);
+
+                if($rsInfoNivelAcesso = mysqli_fetch_assoc($selectDados)){
+                    $idNivelAcesso = $rsInfoNivelAcesso['idNivelAcesso'];
+                    $nomeNivel = $rsInfoNivelAcesso['nomeNivel'];
+                    $acessoConteudo = $rsInfoNivelAcesso['acessoConteudo'];
+                    $acessoFaleConosco = $rsInfoNivelAcesso['acessoFaleConosco'];
+                    $acessoProdutos = $rsInfoNivelAcesso['acessoProduto'];
+                    $acessoUsuarios = $rsInfoNivelAcesso['acessoUsuarios'];
+
+                    $action = "modulos/atualizar.php?modo=atualizar&id=".$rsInfoNivelAcesso['idNivelAcesso']."&url=".$url."&origem=pagina_niveis_acesso";
+                }
+            }
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +103,11 @@
     </head>
 
     <body>
+        <div id="modal">
+            <div id="modalConteudo">
+            </div>
+        </div>
+
         <div id="conteinerCMS">
             <div id="conteinerCabecalho">
                 <div id="conteinerNomeSistema" class="fonte2">
@@ -90,29 +174,111 @@
             </div>
 
             <div id="conteinerSubmenusGerenciamento">
-                <div class="conteinerCadastro">
-                    <div class="tituloCadastro">Cadastro Nivel</div>
+                <form name="formAdmCadastroNivelAcesso" action="<?=$action?>" method="post">
+                    <div class="conteinerCadastro">
+                        <div class="tituloCadastro">Cadastro Nivel</div>
 
-                    Nome do novo nível:
-                    <input type="text" name="txtNomeNivel" required>
-                    <div class="inputBox">
-                        <input type="checkbox" name="cbxAdmConteudo">Acesso ao adm. Conteúdo
+                        <div class="inputBox">
+                            Nome do novo nível:
+                            <input type="text" name="txtNomeNivel" required value="<?=$nomeNivel?>">
+                        </div>
+
+                        <div class="inputBox">
+                            <!-- <input type="checkbox" name="cbxAdmConteudo" value="1" checked> -->
+                            Acesso ao adm. Conteúdo:
+                        </div>
+
+                        <div class="inputBox">
+                            <input type="radio" name="rdoAdmConteudo" value="1" 
+                                <?php
+                                    if($acessoConteudo == '1'){
+                                        echo("checked");
+                                    }
+                                ?>
+                            >Sim
+
+                            <input type="radio" name="rdoAdmConteudo" value="0" 
+                                <?php
+                                    if($acessoConteudo != '1'){
+                                        echo("checked");
+                                    }
+                                ?>
+                            >Não
+                        </div>
+
+                        <div class="inputBox">
+                            <!-- <input type="checkbox" name="cbxAdmFaleConosco" value="1" checked> -->
+                            Acesso ao adm. Fale Conosco:
+                        </div>
+
+                        <div class="inputBox">
+                            <input type="radio" name="rdoAdmFaleConosco" value="1"
+                                <?php
+                                    if($acessoFaleConosco == '1'){
+                                        echo("checked");
+                                    }
+                                ?>
+                            >Sim
+                            <input type="radio" name="rdoAdmFaleConosco" value="0" 
+                                <?php
+                                    if($acessoFaleConosco != '1'){
+                                        echo("checked");
+                                    }
+                                ?>
+                            >Não
+                        </div>
+
+                        <div class="inputBox">
+                            <!-- <input type="checkbox" name="cbxAdmProduto" value="1" checked>Acesso ao adm. Produto -->
+                            Acesso ao adm. Produto:
+                        </div>
+
+                        <div class="inputBox">
+                            <input type="radio" name="rdoAdmProduto" value="1"
+                                <?php
+                                    if($acessoProdutos == '1'){
+                                        echo("checked");
+                                    }
+                                ?>
+                            >Sim
+                            <input type="radio" name="rdoAdmProduto" value="0" 
+                                <?php
+                                    if($acessoProdutos != '1'){
+                                        echo("checked");
+                                    }
+                                ?>
+                            >Não
+                        </div>
+
+                        <div class="inputBox">
+                            <!-- <input type="checkbox" name="cbxAdmUsuario" value="1" checked> -->
+                            Acesso ao adm. Usuário:
+                        </div>
+
+                        <div class="inputBox">
+                            <input type="radio" name="rdoAdmUsuario" value="1"
+                                <?php
+                                    if($acessoUsuarios == '1'){
+                                        echo("checked");
+                                    }
+                                ?>
+                            >Sim
+                            <input type="radio" name="rdoAdmUsuario" value="0" 
+                                <?php
+                                    if($acessoUsuarios != '1'){
+                                        echo("checked");
+                                    }
+                                ?>
+                            >Não
+                        </div>
+
+                        <div class="botaoRegistrar">
+                            <input type="submit" name="btnSubmit" value="Registrar">
+                        </div>
                     </div>
+                </form>
 
-                    <div class="inputBox">
-                        <input type="checkbox" name="cbxAdmFaleConosco">Acesso ao adm. Fale Conosco
-                    </div>
-
-                    <div class="inputBox">
-                        <input type="checkbox" name="cbxAdmProduto">Acesso ao adm. Produto
-                    </div>
-
-                    <div class="inputBox">
-                        <input type="checkbox" name="cbxAdmUsuario">Acesso ao adm. Usuário
-                    </div>
-                </div>
-
-                <form name="formAdmNiveisAcessoFiltro" action="pagina_usuarios.php?modo=filtrar" method="post">
+                <form name="formAdmNiveisAcessoFiltro" action="pagina_niveis_acesso.php?modo=filtrar" method="post">
                     Filtro:
                     <input type="radio" name="inputFiltro" value="a" checked>Todos
                     <input type="radio" name="inputFiltro" value="c">Conteúdo
@@ -181,14 +347,14 @@
                                     ?>
                                 </div>
 
-                                <a onclick="return confirm('Deseja realmente excluir o registro?');"
-                                href="modulos/deletar.php?modo=excluir&id=<?=$rsSelect['idNivelAcesso']?>&tabela=tblNivelAcesso&coluna=idNivelAcesso&url=<?=$url?>">
+                                <a onclick="return confirm('Deseja realmente excluir o registro? Todos os usuários que utilizam este nível de acesso também serão excluídos!    ');"
+                                href="modulos/deletar_nivel_acesso.php?modo=excluir&id=<?=$rsSelect['idNivelAcesso']?>&url=<?=$url?>">
                                     <div class="excluir"></div>
                                 </a>
 
-                                <div class="visualizar" onclick="visualizarFaleConosco(<?=$rsSelect['idUsuario']?>);"></div>
+                                <div class="visualizar" onclick="visualizarNivelAcesso(<?=$rsSelect['idNivelAcesso']?>);"></div>
 
-                                <a href="pagina_usuarios.php?modo=editar&id=<?=$rsSelect['idUsuario']?>">
+                                <a href="pagina_niveis_acesso.php?modo=editar&id=<?=$rsSelect['idNivelAcesso']?>">
                                     <div class="editar"></div>
                                 </a>
                             </div>
