@@ -71,7 +71,9 @@
                         Bem vindo, [XXXX]
                     </div>
 
-                    <div id="conteinerLogout" class="fonte1">Logout</div>
+                    <div id="conteinerLogout" class="fonte1">
+                        <a href="../super.php">Logout</a>
+                    </div>
                 </div>
             </div>
 

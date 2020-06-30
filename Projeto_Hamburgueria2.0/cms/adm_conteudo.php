@@ -71,12 +71,42 @@
                         Bem vindo, [XXXX]
                     </div>
 
-                    <div id="conteinerLogout" class="fonte1">Logout</div>
+                    <div id="conteinerLogout" class="fonte1">
+                        <a href="../super.php">Logout</a>
+                    </div>
                 </div>
             </div>
 
             <div id="conteinerSubmenusGerenciamento">
-                <!-- <div class="conteinerSubmenuItem"></div> -->
+                <div class="conteinerMenuItem">
+                    <a href="pagina_curiosidades.php">
+                        <div class="menuItemImagem">
+                            <img src="./imagens/curiosidade.png" alt="Icone da opção">
+                        </div>
+
+                        <div class="menuItemNome">Curiosidades</div>
+                    </a>
+                </div>
+
+                <div class="conteinerMenuItem">
+                    <a href="pagina_curiosidades.php">
+                        <div class="menuItemImagem">
+                            <img src="./imagens/curiosidade.png" alt="Icone da opção">
+                        </div>
+
+                        <div class="menuItemNome">Curiosidades</div>
+                    </a>
+                </div>
+
+                <div class="conteinerMenuItem">
+                    <a href="pagina_curiosidades.php">
+                        <div class="menuItemImagem">
+                            <img src="./imagens/curiosidade.png" alt="Icone da opção">
+                        </div>
+
+                        <div class="menuItemNome">Curiosidades</div>
+                    </a>
+                </div>
             </div>
 
             <div id="rodape">
