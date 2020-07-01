@@ -1,7 +1,8 @@
 <link rel="stylesheet" type="text/css" href="css/reset.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="shortcut icon" href="../imagens/reparar_icon.jpg">
-<script src="./js/jimcarey.js"></script>
+<script src="./js/jquery.js"></script>
+<script src="./js/jquery.form.js"></script>
 
 <script>
     // Devemos, sempre, iniciar o JQuery por essa function
@@ -16,6 +17,14 @@
 
         $('.fechar').click(function(){
             $('#modal').fadeOut(500);
+        });
+
+        $('#inputImagem').live('change', function(){
+            // alert('entrou!');
+            $('#formImagem').ajaxForm({
+                target: '#visualizarImagem' // Callback do submit para upload de arquivos (upload.php)
+            }).submit();
+            // alert('foi');
         });
     });
 

@@ -1,3 +1,22 @@
+<?php
+    require_once('modulos/conexaoBD.php');
+    $conexao = conexaoMysql();
+
+    $dominio= $_SERVER['HTTP_HOST'];
+    $url = "http://" . $dominio. $_SERVER['REQUEST_URI'];
+
+    $titulo =  null;
+    $imagem = null;
+    $texto = null;
+    $destino = null;
+
+    $sqlQuerySelect = "select * from tblConteudo order by tblConteudo.titulo";
+
+    $select = mysqli_query($conexao, $sqlQuerySelect);
+
+    $action = "modulos/inserir_conteudo.php?modo=inserir&url=".$url;
+?>
+
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -78,7 +97,7 @@
             </div>
 
             <div id="conteinerSubmenusGerenciamento">
-                <div class="conteinerMenuItem">
+                <!-- <div class="conteinerMenuItem">
                     <a href="pagina_curiosidades.php">
                         <div class="menuItemImagem">
                             <img src="./imagens/curiosidade.png" alt="Icone da opção">
@@ -106,7 +125,88 @@
 
                         <div class="menuItemNome">Curiosidades</div>
                     </a>
+                </div> -->
+
+                
+                <div class="conteinerCadastro">
+                    <div class="tituloCadastro">Cadastro Conteúdo</div>
+
+                    <form action="modulos/uploadImagem.php" name="formImagem" id="formImagem" method="POST" enctype="multipart/form-data">
+                        <div class="inputBox">
+                            Imagem: <input type="file" name="fleImagem" id="inputImagem" accept="image/png, image/gif, image/jpg, image/jpeg" value="<?=$imagem?>">
+                        </div>
+
+                        <div id="visualizarImagem"></div>
+                    </form>
+                    
+                    <form action="<?=$action?>" name="formAdmConteudo" id="formAdmConteudo" method="POST" enctype="multipart/form-data">
+                        <div class="inputBox">
+                            Titulo: <input type="text" name="txtTitulo" value="<?=$titulo?>">
+                        </div>
+
+                        <div class="inputBox">
+                            Texto: 
+                            <textarea name="textAreaTexto" id="" cols="30" rows="10"><?=$texto?></textarea>
+                        </div>
+
+                        <div class="inputBox">
+                            Destino:
+                            <select name="slctDestino">
+                                <option value="c">Curiosidades</option>
+                                <option value="s">Sobre a Empresa</option>
+                            </select>
+                        </div>
+                    
+                        <div class="botaoRegistrar">
+                            <input type="submit" name="btnSubmit" value="Registrar">
+                        </div>
+                    </form>
                 </div>
+
+                <form name="formAdmFaleConoscoFiltro" action="pagina_usuarios.php?modo=filtrar" method="post">
+                    Filtro:
+                    <input type="radio" name="inputFiltro" value="a" checked>Todos
+                    <input type="radio" name="inputFiltro" value="c">Conteúdo
+                    <input type="radio" name="inputFiltro" value="f">Fale Conosco
+                    <input type="radio" name="inputFiltro" value="p">Produtos
+                    <input type="radio" name="inputFiltro" value="u">Usuários
+
+                    <input type="submit" value="filtrar" name="btnFiltrar">
+                </form>
+                
+                <!-- <div class="conteinerSubmenuItem"></div> -->
+                <div class="conteinerComentario">
+                    <div class="conteudoTitulo">Título</div>
+                    <div class="conteudoImagem">Imagem</div>
+                    <div class="conteudoDestino">Destino</div>
+                    <div class="conteudoTexto">Texto</div>
+                </div>
+
+                <?php
+                    while($rsSelect = mysqli_fetch_assoc($select)){
+                        ?>
+                            <div class="conteinerComentario">
+                                <div class="conteudoTitulo"><?=$rsSelect['titulo']?></div>
+                                <div class="conteudoImagem">
+                                    <img src="arquivos/<?=$rsSelect['imagem']?>" class="imagens">
+                                </div>
+                                <div class="conteudoDestino"><?=$rsSelect['destino']?></div>
+                                <div class="conteudoTexto"><?=$rsSelect['texto']?></div>
+
+                                <a onclick="return confirm('Deseja realmente excluir o registro?');"
+                                href="./modulos/deletar.php?modo=excluir&id=<?=$rsSelect['idConteudo']?>&tabela=tblUsuario&coluna=idUsuario&url=<?=$url?>">
+                                    <div class="excluir"></div>
+                                </a>
+
+                                <div class="visualizar" onclick="visualizarUsuario(<?=$rsSelect['idConteudo']?>);"></div>
+
+                                <a href="pagina_usuarios.php?modo=editar&id=<?=$rsSelect['idConteudo']?>">
+                                    <div class="editar"></div>
+                                </a>
+                            </div>
+                        <?php
+                    }   
+                ?>
             </div>
 
             <div id="rodape">

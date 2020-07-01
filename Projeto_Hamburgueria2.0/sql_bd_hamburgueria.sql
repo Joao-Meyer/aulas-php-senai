@@ -86,4 +86,21 @@ select * from tblUsuario;
 
 show tables;
 
-delete from tblNivelAcesso where idNivelAcesso = 2; 
+delete from tblNivelAcesso where idNivelAcesso = 2;
+
+create table tblConteudo (
+	idConteudo int(11) not null auto_increment primary key,
+    titulo varchar(200),
+    imagem varchar(200),
+    texto text not null,
+    visibilidade boolean not null,
+    destino char(1) not null
+);
+
+select * from tblConteudo;
+
+insert into tblConteudo ( titulo, imagem, texto, visibilidade, destino )
+	values ( 'Teste titulo', 'Teste imagem', 'Teste texto que seja grande pelo menos um pouco', 1, 'c' );
+    
+update tblConteudo set imagem = '69a06e118e55974cf439146ea8f4b26a.png' where idConteudo = 1;
+
