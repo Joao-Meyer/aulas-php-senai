@@ -57,7 +57,7 @@
                     // no insert do BD
                     $_SESSION['nomeImagem'] = $imagem;
 
-                    echo("<img src='arquivos/" . $imagem . "'>");                  
+                    echo("<img src='arquivos/" . $imagem . "'>");
                 }
                 else{
                     echo("Falha na movimentação do arquivo.");

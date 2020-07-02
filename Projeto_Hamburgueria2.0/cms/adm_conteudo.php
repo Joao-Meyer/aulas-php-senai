@@ -5,12 +5,66 @@
     $dominio= $_SERVER['HTTP_HOST'];
     $url = "http://" . $dominio. $_SERVER['REQUEST_URI'];
 
+    if(isset($_POST['btnFiltrar'])){
+        if($_GET['modo']){
+            if($_GET['modo'] == 'filtrar'){
+                $filtro = $_POST['inputFiltro'];
+
+                switch($filtro){
+                    case "c":
+                        $sqlQuerySelect = "select * from tblConteudo
+                            where tblConteudo.destino = 'c'
+                            order by tblConteudo.titulo";
+                    break;
+
+                    case "s":
+                        $sqlQuerySelect = "select * from tblConteudo
+                            where tblConteudo.destino = 's'
+                            order by tblConteudo.titulo";
+                    break;
+
+                    default:
+                        $sqlQuerySelect = "select * from tblConteudo order by tblConteudo.titulo";
+                    break;
+                }
+            }
+        }
+    }
+    else{
+        $sqlQuerySelect = "select * from tblConteudo order by tblConteudo.titulo";
+    }
+
     $titulo =  null;
     $imagem = null;
     $texto = null;
+    // $visibilidade = null;
     $destino = null;
 
-    $sqlQuerySelect = "select * from tblConteudo order by tblConteudo.titulo";
+    if(isset($_GET['modo'])){
+        if($_GET['modo'] == 'editar'){
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+
+                $querySelectConteudo = "
+                    select *
+                    from tblConteudo
+                    where tblConteudo.idConteudo = ".$id;
+                
+                $selectDados = mysqli_query($conexao, $querySelectConteudo);
+
+                if($rsDados = mysqli_fetch_assoc($selectDados)){
+                    $idConteudo = $rsDados['idConteudo'];
+                    $titulo =  $rsDados['titulo'];
+                    $imagem = $rsDados['imagem'];
+                    $texto = $rsDados['texto'];
+                    // $visibilidade = null;
+                    $destino = $rsDados['destino'];
+
+                    $action = "modulos/atualizar.php?modo=atualizar&id=".$idConteudo."&origem=admConteudo&url=".$url."&origem=admConteudo";
+                }
+            }
+        }
+    }
 
     $select = mysqli_query($conexao, $sqlQuerySelect);
 
@@ -136,7 +190,13 @@
                             Imagem: <input type="file" name="fleImagem" id="inputImagem" accept="image/png, image/gif, image/jpg, image/jpeg" value="<?=$imagem?>">
                         </div>
 
-                        <div id="visualizarImagem"></div>
+                        <div id="visualizarImagem">
+                            <?php
+                                if($imagem != null){
+                                    echo("<img src='arquivos/" . $imagem . "'>");
+                                }
+                            ?>
+                        </div>
                     </form>
                     
                     <form action="<?=$action?>" name="formAdmConteudo" id="formAdmConteudo" method="POST" enctype="multipart/form-data">
@@ -149,11 +209,42 @@
                             <textarea name="textAreaTexto" id="" cols="30" rows="10"><?=$texto?></textarea>
                         </div>
 
+                        <?php
+                            // if( $visibilidade = '0' ){
+                            //     echo("
+                            //         <div class='inputBox'>
+                            //             Destino:
+                            //             <select name='slctDestino'>
+                            //                 <option value='c'>Curiosidades</option>
+                            //                 <option value='s'>Sobre a Empresa</option>
+                            //             </select>
+                            //         </div>
+                            //     ");
+                            // }
+                        ?>
+
                         <div class="inputBox">
                             Destino:
                             <select name="slctDestino">
-                                <option value="c">Curiosidades</option>
-                                <option value="s">Sobre a Empresa</option>
+                                <option value="c" 
+                                    <?php
+                                        if($destino == 'c'){
+                                            echo('selected');
+                                        }
+                                    ?>
+                                >
+                                    Curiosidades
+                                </option>
+
+                                <option value="s"
+                                    <?php
+                                        if($destino == 's'){
+                                            echo('selected');
+                                        }
+                                    ?>        
+                                >
+                                    Sobre a Empresa
+                                </option>
                             </select>
                         </div>
                     
@@ -163,13 +254,11 @@
                     </form>
                 </div>
 
-                <form name="formAdmFaleConoscoFiltro" action="pagina_usuarios.php?modo=filtrar" method="post">
+                <form name="formAdmFaleConoscoFiltro" action="adm_conteudo.php?modo=filtrar" method="post">
                     Filtro:
                     <input type="radio" name="inputFiltro" value="a" checked>Todos
-                    <input type="radio" name="inputFiltro" value="c">Conteúdo
-                    <input type="radio" name="inputFiltro" value="f">Fale Conosco
-                    <input type="radio" name="inputFiltro" value="p">Produtos
-                    <input type="radio" name="inputFiltro" value="u">Usuários
+                    <input type="radio" name="inputFiltro" value="c">Curiosidades
+                    <input type="radio" name="inputFiltro" value="s">Sobre Empresa
 
                     <input type="submit" value="filtrar" name="btnFiltrar">
                 </form>
@@ -180,6 +269,7 @@
                     <div class="conteudoImagem">Imagem</div>
                     <div class="conteudoDestino">Destino</div>
                     <div class="conteudoTexto">Texto</div>
+                    <div class="conteudoVisivel">Visivel</div>
                 </div>
 
                 <?php
@@ -190,17 +280,36 @@
                                 <div class="conteudoImagem">
                                     <img src="arquivos/<?=$rsSelect['imagem']?>" class="imagens">
                                 </div>
-                                <div class="conteudoDestino"><?=$rsSelect['destino']?></div>
+                                <div class="conteudoDestino">
+                                    <?php
+                                        if($rsSelect['destino'] == 'c'){
+                                            echo("Curiosidades");
+                                        }
+                                        else{
+                                            echo("Sobre a empresa");
+                                        }
+                                    ?>
+                                </div>
                                 <div class="conteudoTexto"><?=$rsSelect['texto']?></div>
+                                <div class="conteudoVisivel">
+                                    <?php
+                                        if( ($rsSelect['visibilidade']) == '1' ){
+                                            echo("<img src='imagens/positivo.png' class='coloreVerde'>");
+                                        }
+                                        else{
+                                            echo("<img src='imagens/negativo.png' class='coloreVermelho'>");
+                                        }
+                                    ?>
+                                </div>
 
                                 <a onclick="return confirm('Deseja realmente excluir o registro?');"
-                                href="./modulos/deletar.php?modo=excluir&id=<?=$rsSelect['idConteudo']?>&tabela=tblUsuario&coluna=idUsuario&url=<?=$url?>">
+                                href="./modulos/deletar.php?modo=excluir&id=<?=$rsSelect['idConteudo']?>&imagem=<?=$rsSelect['imagem']?>&origem=admConteudo&url=<?=$url?>">
                                     <div class="excluir"></div>
                                 </a>
 
                                 <div class="visualizar" onclick="visualizarUsuario(<?=$rsSelect['idConteudo']?>);"></div>
 
-                                <a href="pagina_usuarios.php?modo=editar&id=<?=$rsSelect['idConteudo']?>">
+                                <a href="adm_conteudo.php?modo=editar&id=<?=$rsSelect['idConteudo']?>">
                                     <div class="editar"></div>
                                 </a>
                             </div>

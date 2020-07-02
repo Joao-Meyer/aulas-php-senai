@@ -163,13 +163,14 @@ a {
 }
 
 .conteudoTitulo {
-    width: 260px;
+    width: 300px;
     height: 50px;
     border: 1px black solid;
     box-sizing: border-box;
     font-size: 1.2em;
     line-height: 1.2em;
     text-align: center;
+    padding-top: 10px;
     float: left;
 }
 
@@ -178,6 +179,7 @@ a {
     height: 50px;
     border: 1px black solid;
     box-sizing: border-box;
+    padding-top: 10px;
     font-size: 1.2em;
     line-height: 1.2em;
     text-align: center;
@@ -187,15 +189,17 @@ a {
 .conteudoImagem img {
     width: 50px;
     height: 50px;
+    margin-top: -10px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .conteudoDestino {
-    width: 130px;
+    width: 160px;
     height: 50px;
     border: 1px black solid;
     box-sizing: border-box;
+    padding-top: 10px;
     font-size: 1.2em;
     line-height: 1.2em;
     text-align: center;
@@ -203,14 +207,48 @@ a {
 }
 
 .conteudoTexto {
-    width: 260px;
+    width: 320px;
     height: 50px;
     border: 1px black solid;
     box-sizing: border-box;
+    padding-top: 10px;
     font-size: 1.2em;
     line-height: 1.2em;
     text-align: center;
     float: left;
+    overflow: hidden;
+}
+
+.conteudoVisivel {
+    width: 100px;
+    height: 50px;
+    border: 1px black solid;
+    box-sizing: border-box;
+    padding-top: 10px;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    text-align: center;
+    overflow: hidden;
+    float: left;
+}
+
+.coloreVerde:hover {
+    background-color: rgba(75, 255, 3, 0.7);
+    border-radius: 25px;
+}
+
+
+.coloreVermelho:hover {
+    background-color: rgba(255, 15, 15, 0.7);
+    border-radius: 25px;
+}
+
+.conteudoVisivel img {
+    width: 50px;
+    height: 50px;
+    margin-top: -10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Nivel de acesso */

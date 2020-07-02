@@ -1,12 +1,44 @@
 <?php
     if(isset($_GET['modo'])){
         if($_GET['modo'] == 'atualizar'){
-            require_once('conexaoBD.php');
-
-            $conexao = conexaoMysql();
-
             if(isset($_POST['btnSubmit'])){
-                if($_GET['origem'] == 'pagina_usuarios'){
+                require_once('conexaoBD.php');
+                $conexao = conexaoMysql();
+
+                if($_GET['origem'] == 'admConteudo'){
+                    $id = $_GET['id'];
+                    $titulo = $_POST['txtTitulo'];
+                    $texto = $_POST['textAreaTexto'];
+                    $destino = $_POST['slctDestino'];
+
+                    // if(){
+                    //     $imagem = $_SESSION['nomeImagem'];    
+                    // }
+
+                    $sqlQueryAtualizar = "
+                        update tblConteudo set
+                            titulo = '".$titulo."',
+                            imagem = '".$imagem."',
+                            texto = '".$texto."',
+                            destino = '".$destino."'
+                        where idConteudo = ".$id;
+
+                    if(mysqli_query($conexao, $sqlQueryAtualizar)){
+                        $url = $_GET['url'];
+                        echo($url);
+                        header('location:' . $url);
+                    }
+                    else{
+                        echo("
+                            <script>
+                                alert('Erro ao executar o script!);
+
+                                window.history.back();
+                            </script>
+                        ");
+                    }
+                }
+                elseif($_GET['origem'] == 'pagina_usuarios'){
                     $id = $_GET['id'];
 
                     $nome = $_POST['txtNomeUsuario'];
