@@ -104,6 +104,6 @@ insert into tblConteudo ( titulo, imagem, texto, visibilidade, destino )
     
 update tblConteudo set imagem = '69a06e118e55974cf439146ea8f4b26a.png' where idConteudo = 1;
 
-update tblConteudo set visibilidade = 0 where idConteudo = 1;
+update tblConteudo set visibilidade = 0 where idConteudo = 6;
 
 delete from tblConteudo where idConteudo = 3;

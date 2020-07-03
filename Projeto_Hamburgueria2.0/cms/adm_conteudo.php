@@ -273,6 +273,7 @@
                 </div>
 
                 <?php
+                    $i = 0;
                     while($rsSelect = mysqli_fetch_assoc($select)){
                         ?>
                             <div class="conteinerComentario">
@@ -294,10 +295,10 @@
                                 <div class="conteudoVisivel">
                                     <?php
                                         if( ($rsSelect['visibilidade']) == '1' ){
-                                            echo("<img src='imagens/positivo.png' class='coloreVerde'>");
+                                            echo("<img src='imagens/positivo.png' onclick=".'"'."mudarVisibilidade('".$rsSelect['idConteudo']."','".$rsSelect['visibilidade']."', '".$url."')".'"'." class='visibilidadeIcone coloreVerde'>");
                                         }
                                         else{
-                                            echo("<img src='imagens/negativo.png' class='coloreVermelho'>");
+                                            echo("<img src='imagens/negativo.png' onclick=".'"'."mudarVisibilidade('".$rsSelect['idConteudo']."','".$rsSelect['visibilidade']."', '".$url."')".'"'." class='visibilidadeIcone coloreVermelho'>");
                                         }
                                     ?>
                                 </div>
@@ -314,6 +315,8 @@
                                 </a>
                             </div>
                         <?php
+
+                        $i++;
                     }   
                 ?>
             </div>

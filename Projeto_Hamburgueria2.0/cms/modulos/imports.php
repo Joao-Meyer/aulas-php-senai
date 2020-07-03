@@ -26,7 +26,31 @@
             }).submit();
             // alert('foi');
         });
+
+        // $('.visibilidadeIcone').live('click', function( element ){
+        //     const id = element.target.dataset.id;
+        //     const visibilidadeAtual = element.target.dataset.visibilidadeAtual;
+        //     const nomeForm = element.target.dataset.nomeForm;
+        //     alert(id + visibilidadeAtual + nomeForm);
+        //     $('#formVisibilidade').ajaxForm({
+        //         // target: '#visualizarImagem' // Callback do submit para upload de arquivos (upload.php)
+        //     }).submit();
+        //     // alert('foi');
+        // });
     });
+
+    function mudarVisibilidade(id, visibilidadeAntiga, url){
+        // $.ajax({
+        //     type: "POST",
+        //     url: "modulos/update_visibilidade.php",
+        //     data: {
+        //         id: id,
+        //         visibilidadeAntiga: visibilidadeAntiga,
+        //         nomeFormulario: nomeFormulario 
+        //     }
+        // });
+        window.location=`modulos/update_visibilidade.php?id=${id}&visibilidadeAntiga=${visibilidadeAntiga}&url=${url}`;
+    }
 
     // Function para abrir um arquivo dentro da modal
     function visualizarFaleConosco(idContato){
