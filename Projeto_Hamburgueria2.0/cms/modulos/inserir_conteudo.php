@@ -32,7 +32,7 @@
                 }
                 // echo('<script>
                 //     alert("'.$nome.', '.$login.', '.$senha.', '.$nivelAcesso.'");
-                // </script>');
+                // // </script>');
             }
         }
     }

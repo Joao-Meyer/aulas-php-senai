@@ -5,23 +5,35 @@
                 require_once('conexaoBD.php');
                 $conexao = conexaoMysql();
 
-                if($_GET['origem'] == 'admConteudo'){
+                if($_GET['origem'] == 'adm_conteudo'){
+
                     $id = $_GET['id'];
+                    $imagemAntiga = $_GET['imagemAntiga'];
                     $titulo = $_POST['txtTitulo'];
                     $texto = $_POST['textAreaTexto'];
                     $destino = $_POST['slctDestino'];
-
-                    // if(){
-                    //     $imagem = $_SESSION['nomeImagem'];    
-                    // }
-
-                    $sqlQueryAtualizar = "
+                    session_start();
+                    $imagem = $_SESSION['nomeImagem'];
+                    
+                    if($imagem != $imagemAntiga){
+                        $sqlQueryAtualizar = "
+                            update tblConteudo set
+                                titulo = '".$titulo."',
+                                imagem = '".$imagem."',
+                                texto = '".$texto."',
+                                destino = '".$destino."'
+                            where idConteudo = ".$id;
+                    }
+                    else{
+                        $sqlQueryAtualizar = "
                         update tblConteudo set
                             titulo = '".$titulo."',
-                            imagem = '".$imagem."',
                             texto = '".$texto."',
                             destino = '".$destino."'
                         where idConteudo = ".$id;
+                    }
+
+                    echo($sqlQueryAtualizar);
 
                     if(mysqli_query($conexao, $sqlQueryAtualizar)){
                         $url = $_GET['url'];
@@ -70,8 +82,7 @@
                         ");
                     }
                 }
-
-                if($_GET['origem'] == 'pagina_niveis_acesso'){
+                elseif($_GET['origem'] == 'pagina_niveis_acesso'){
                     $id = $_GET['id'];
 
                     $nomeNivel = $_POST['txtNomeNivel'];
@@ -104,6 +115,9 @@
                             </script>
                         ");
                     }
+                }
+                else{
+                    echo("Pagina de origem não encontrada!");
                 }
             }
         }
