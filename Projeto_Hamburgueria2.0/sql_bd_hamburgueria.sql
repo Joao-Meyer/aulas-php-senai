@@ -107,3 +107,20 @@ update tblConteudo set imagem = '69a06e118e55974cf439146ea8f4b26a.png' where idC
 update tblConteudo set visibilidade = 0 where idConteudo = 6;
 
 delete from tblConteudo where idConteudo = 3;
+
+create table tblLoja(
+	idLoja int(11) not null auto_increment primary key,
+    nomeLoja varchar(200) not null,
+    enderecoLoja varchar(200) not null,
+    fotoLoja varchar(200) not null,
+    textoLoja text not null,
+    visibilidade boolean not null
+);
+
+insert into tblLoja (
+		nomeLoja, enderecoLoja, fotoLoja, textoLoja, visibilidade
+	)
+    values (
+		'Teste', 'Rua Dahora', 'd39c70603704ceaeb403b116990c97be.jpg', 'Texto da hora', 1
+    );
+    

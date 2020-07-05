@@ -23,6 +23,8 @@
                                 texto = '".$texto."',
                                 destino = '".$destino."'
                             where idConteudo = ".$id;
+
+                            unlink('../arquivos/'.$imagemAntiga);
                     }
                     else{
                         $sqlQueryAtualizar = "
@@ -38,6 +40,50 @@
                     if(mysqli_query($conexao, $sqlQueryAtualizar)){
                         $url = $_GET['url'];
                         echo($url);
+                        header('location:' . $url);
+                    }
+                    else{
+                        echo("
+                            <script>
+                                alert('Erro ao executar o script!);
+
+                                window.history.back();
+                            </script>
+                        ");
+                    }
+                }
+                elseif($_GET['origem'] == 'pagina_lojas'){
+                    $id = $_GET['id'];
+                    $imagemAntiga = $_GET['imagemAntiga'];
+                    $nome = $_POST['txtNome'];
+                    $texto = $_POST['textAreaTexto'];
+                    $endereco = $_POST['txtEndereco'];
+
+                    session_start();
+                    $imagem = $_SESSION['nomeImagem'];
+                    
+                    if($imagem != $imagemAntiga){
+                        $sqlQueryAtualizar = "
+                            update tblLoja set
+                                nomeLoja = '".$nome."',
+                                fotoLoja = '".$imagem."',
+                                textoLoja = '".$texto."',
+                                enderecoLoja = '".$endereco."'
+                            where idLoja = ".$id;
+
+                            unlink('../arquivos/'.$imagemAntiga);
+                    }
+                    else{
+                        $sqlQueryAtualizar = "
+                            update tblLoja set
+                                nomeLoja = '".$nome."',
+                                textoLoja = '".$texto."',
+                                enderecoLoja = '".$endereco."'
+                            where idLoja = ".$id;
+                    }
+
+                    if(mysqli_query($conexao, $sqlQueryAtualizar)){
+                        $url = $_GET['url'];
                         header('location:' . $url);
                     }
                     else{

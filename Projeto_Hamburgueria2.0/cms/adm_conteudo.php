@@ -89,12 +89,12 @@
                 </div>
 
                 <div class="conteinerMenuItem">
-                    <a href="pagina_curiosidades.php">
+                    <a href="pagina_lojas.php">
                         <div class="menuItemImagem">
-                            <img src="./imagens/curiosidade.png" alt="Icone da opção">
+                            <img src="./imagens/loja.png" alt="Icone da opção">
                         </div>
 
-                        <div class="menuItemNome">Curiosidades</div>
+                        <div class="menuItemNome">Lojas</div>
                     </a>
                 </div>
             </div>

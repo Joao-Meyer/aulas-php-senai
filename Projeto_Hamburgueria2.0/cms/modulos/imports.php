@@ -39,7 +39,7 @@
         // });
     });
 
-    function mudarVisibilidade(id, visibilidadeAntiga, url){
+    function mudarVisibilidade(id, visibilidadeAntiga, origem, url){
         // $.ajax({
         //     type: "POST",
         //     url: "modulos/update_visibilidade.php",
@@ -49,7 +49,7 @@
         //         nomeFormulario: nomeFormulario 
         //     }
         // });
-        window.location=`modulos/update_visibilidade.php?id=${id}&visibilidadeAntiga=${visibilidadeAntiga}&url=${url}`;
+        window.location=`modulos/update_visibilidade.php?id=${id}&visibilidadeAntiga=${visibilidadeAntiga}&origem=${origem}&url=${url}`;
     }
 
     // Function para abrir um arquivo dentro da modal

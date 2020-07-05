@@ -11,34 +11,33 @@
                 $filtro = $_POST['inputFiltro'];
 
                 switch($filtro){
-                    case "c":
-                        $sqlQuerySelect = "select * from tblConteudo
-                            where tblConteudo.destino = 'c'
-                            order by tblConteudo.titulo";
+                    case "v":
+                        $sqlQuerySelect = "select * from tblLoja
+                            where tblLoja.visibilidade = 1
+                            order by tblLoja.nomeLoja";
                     break;
 
-                    case "s":
-                        $sqlQuerySelect = "select * from tblConteudo
-                            where tblConteudo.destino = 's'
-                            order by tblConteudo.titulo";
+                    case "n":
+                        $sqlQuerySelect = "select * from tblLoja
+                            where tblLoja.visibilidade = 0
+                            order by tblLoja.nomeLoja";
                     break;
 
                     default:
-                        $sqlQuerySelect = "select * from tblConteudo order by tblConteudo.titulo";
+                        $sqlQuerySelect = "select * from tblLoja order by tblLoja.nomeLoja";
                     break;
                 }
             }
         }
     }
     else{
-        $sqlQuerySelect = "select * from tblConteudo order by tblConteudo.titulo";
+        $sqlQuerySelect = "select * from tblLoja order by tblLoja.nomeLoja";
     }
 
-    $titulo =  null;
+    $nome =  null;
     $imagem = null;
     $texto = null;
-    // $visibilidade = null;
-    $destino = null;
+    $endereco = null;
 
     if(isset($_GET['modo'])){
         if($_GET['modo'] == 'editar'){
@@ -47,26 +46,26 @@
 
                 $querySelectConteudo = "
                     select *
-                    from tblConteudo
-                    where tblConteudo.idConteudo = ".$id;
+                    from tblLoja
+                    where tblLoja.idLoja = ".$id;
                 
                 $selectDados = mysqli_query($conexao, $querySelectConteudo);
 
                 if($rsDados = mysqli_fetch_assoc($selectDados)){
-                    $idConteudo = $rsDados['idConteudo'];
-                    $titulo =  $rsDados['titulo'];
-                    $imagemAntiga = $rsDados['imagem'];
+                    $idLoja = $rsDados['idLoja'];
+                    $nome =  $rsDados['nomeLoja'];
+                    $imagemAntiga = $rsDados['fotoLoja'];
                     $imagem = $imagemAntiga;
-                    $texto = $rsDados['texto'];
-                    $destino = $rsDados['destino'];
+                    $texto = $rsDados['textoLoja'];
+                    $endereco = $rsDados['enderecoLoja'];
 
-                    $action = "modulos/atualizar.php?modo=atualizar&origem=adm_conteudo&imagemAntiga=".$imagemAntiga."&id=".$idConteudo."&url=".$url;
+                    $action = "modulos/atualizar.php?modo=atualizar&origem=pagina_lojas&imagemAntiga=".$imagemAntiga."&id=".$idLoja."&url=".$url;
                 }
             }
         }   
     }
     else{
-        $action = "modulos/inserir_conteudo.php?modo=inserir&url=".$url;
+        $action = "modulos/inserir_loja.php?modo=inserir&url=".$url;
     }
 
     $select = mysqli_query($conexao, $sqlQuerySelect);
@@ -152,37 +151,6 @@
             </div>
 
             <div id="conteinerSubmenusGerenciamento">
-                <!-- <div class="conteinerMenuItem">
-                    <a href="pagina_curiosidades.php">
-                        <div class="menuItemImagem">
-                            <img src="./imagens/curiosidade.png" alt="Icone da opção">
-                        </div>
-
-                        <div class="menuItemNome">Curiosidades</div>
-                    </a>
-                </div>
-
-                <div class="conteinerMenuItem">
-                    <a href="pagina_curiosidades.php">
-                        <div class="menuItemImagem">
-                            <img src="./imagens/curiosidade.png" alt="Icone da opção">
-                        </div>
-
-                        <div class="menuItemNome">Curiosidades</div>
-                    </a>
-                </div>
-
-                <div class="conteinerMenuItem">
-                    <a href="pagina_curiosidades.php">
-                        <div class="menuItemImagem">
-                            <img src="./imagens/curiosidade.png" alt="Icone da opção">
-                        </div>
-
-                        <div class="menuItemNome">Curiosidades</div>
-                    </a>
-                </div> -->
-
-                
                 <div class="conteinerCadastro">
                     <div class="tituloCadastro">Cadastro Conteúdo</div>
 
@@ -202,51 +170,16 @@
                     
                     <form action="<?=$action?>" name="formAdmConteudo" id="formAdmConteudo" method="post" enctype="multipart/form-data">
                         <div class="inputBox">
-                            Titulo: <input type="text" name="txtTitulo" value="<?=$titulo?>">
+                            Nome da Loja: <input type="text" name="txtNome" value="<?=$nome?>">
+                        </div>
+
+                        <div class="inputBox">
+                            Endereco: <input type="text" name="txtEndereco" value="<?=$endereco?>">
                         </div>
 
                         <div class="inputBox">
                             Texto: 
                             <textarea name="textAreaTexto" id="" cols="30" rows="10"><?=$texto?></textarea>
-                        </div>
-
-                        <?php
-                            // if( $visibilidade = '0' ){
-                            //     echo("
-                            //         <div class='inputBox'>
-                            //             Destino:
-                            //             <select name='slctDestino'>
-                            //                 <option value='c'>Curiosidades</option>
-                            //                 <option value='s'>Sobre a Empresa</option>
-                            //             </select>
-                            //         </div>
-                            //     ");
-                            // }
-                        ?>
-
-                        <div class="inputBox">
-                            Destino:
-                            <select name="slctDestino">
-                                <option value="c" 
-                                    <?php
-                                        if($destino == 'c'){
-                                            echo('selected');
-                                        }
-                                    ?>
-                                >
-                                    Curiosidades
-                                </option>
-
-                                <option value="s"
-                                    <?php
-                                        if($destino == 's'){
-                                            echo('selected');
-                                        }
-                                    ?>        
-                                >
-                                    Sobre a Empresa
-                                </option>
-                            </select>
                         </div>
                     
                         <div class="botaoRegistrar">
@@ -255,69 +188,56 @@
                     </form>
                 </div>
 
-                <form name="formAdmFaleConoscoFiltro" action="adm_conteudo.php?modo=filtrar" method="post">
+                <form name="formAdmFaleConoscoFiltro" action="pagina_lojas.php?modo=filtrar" method="post">
                     Filtro:
                     <input type="radio" name="inputFiltro" value="a" checked>Todos
-                    <input type="radio" name="inputFiltro" value="c">Curiosidades
-                    <input type="radio" name="inputFiltro" value="s">Sobre Empresa
-
+                    <input type="radio" name="inputFiltro" value="v">Visivel
+                    <input type="radio" name="inputFiltro" value="n">Não visivel
                     <input type="submit" value="filtrar" name="btnFiltrar">
                 </form>
                 
                 <!-- <div class="conteinerSubmenuItem"></div> -->
                 <div class="conteinerComentario">
-                    <div class="conteudoTitulo">Título</div>
-                    <div class="conteudoImagem">Imagem</div>
-                    <div class="conteudoDestino">Destino</div>
-                    <div class="conteudoTexto">Texto</div>
+                    <div class="lojaNome">Nome</div>
+                    <div class="lojaImagem">Imagem</div>
+                    <div class="lojaEndereco">Endereço</div>
+                    <div class="lojaTexto">Texto</div>
                     <div class="conteudoVisivel">Visivel</div>
                 </div>
 
                 <?php
-                    $i = 0;
                     while($rsSelect = mysqli_fetch_assoc($select)){
                         ?>
                             <div class="conteinerComentario">
-                                <div class="conteudoTitulo"><?=$rsSelect['titulo']?></div>
-                                <div class="conteudoImagem">
-                                    <img src="arquivos/<?=$rsSelect['imagem']?>" class="imagens">
+                                <div class="lojaNome"><?=$rsSelect['nomeLoja']?></div>
+                                <div class="lojaImagem">
+                                    <img src="arquivos/<?=$rsSelect['fotoLoja']?>" class="imagens">
                                 </div>
-                                <div class="conteudoDestino">
-                                    <?php
-                                        if($rsSelect['destino'] == 'c'){
-                                            echo("Curiosidades");
-                                        }
-                                        else{
-                                            echo("Sobre a empresa");
-                                        }
-                                    ?>
-                                </div>
-                                <div class="conteudoTexto"><?=$rsSelect['texto']?></div>
+                                <div class="lojaEndereco"><?=$rsSelect['enderecoLoja']?></div>
+                                <div class="lojaTexto"><?=$rsSelect['textoLoja']?></div>
                                 <div class="conteudoVisivel">
                                     <?php
                                         if( ($rsSelect['visibilidade']) == '1' ){
-                                            echo("<img src='imagens/positivo.png' onclick=".'"'."mudarVisibilidade('".$rsSelect['idConteudo']."','".$rsSelect['visibilidade']."', 'pagina_conteudos', '".$url."')".'"'." class='visibilidadeIcone coloreVerde'>");
+                                            echo("<img src='imagens/positivo.png' onclick=".'"'."mudarVisibilidade('".$rsSelect['idLoja']."','".$rsSelect['visibilidade']."', 'pagina_lojas', '".$url."')".'"'." class='visibilidadeIcone coloreVerde'>");
                                         }
                                         else{
-                                            echo("<img src='imagens/negativo.png' onclick=".'"'."mudarVisibilidade('".$rsSelect['idConteudo']."','".$rsSelect['visibilidade']."', 'pagina_conteudos', '".$url."')".'"'." class='visibilidadeIcone coloreVermelho'>");
+                                            echo("<img src='imagens/negativo.png' onclick=".'"'."mudarVisibilidade('".$rsSelect['idLoja']."','".$rsSelect['visibilidade']."', 'pagina_lojas', '".$url."')".'"'." class='visibilidadeIcone coloreVermelho'>");
                                         }
                                     ?>
                                 </div>
 
                                 <a onclick="return confirm('Deseja realmente excluir o registro?');"
-                                href="./modulos/deletar.php?modo=excluir&id=<?=$rsSelect['idConteudo']?>&imagem=<?=$rsSelect['imagem']?>&origem=admConteudo&url=<?=$url?>">
+                                href="./modulos/deletar.php?modo=excluir&id=<?=$rsSelect['idLoja']?>&imagem=<?=$rsSelect['fotoLoja']?>&origem=pagina_lojas&url=<?=$url?>">
                                     <div class="excluir"></div>
                                 </a>
 
-                                <div class="visualizar" onclick="visualizarUsuario(<?=$rsSelect['idConteudo']?>);"></div>
+                                <div class="visualizar" onclick="visualizarUsuario(<?=$rsSelect['idLoja']?>);"></div>
 
-                                <a href="pagina_conteudos.php?modo=editar&id=<?=$rsSelect['idConteudo']?>">
+                                <a href="pagina_lojas.php?modo=editar&id=<?=$rsSelect['idLoja']?>">
                                     <div class="editar"></div>
                                 </a>
                             </div>
                         <?php
-
-                        $i++;
                     }   
                 ?>
             </div>
