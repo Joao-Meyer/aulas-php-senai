@@ -124,3 +124,17 @@ insert into tblLoja (
 		'Teste', 'Rua Dahora', 'd39c70603704ceaeb403b116990c97be.jpg', 'Texto da hora', 1
     );
     
+select * from tblConteudo where visibilidade = 1;
+
+select * from tblLoja where visibilidade = 1;
+
+select * from tblUsuario;
+
+select tblUsuario.*, tblNivelAcesso.*
+	from tblUsuario, tblNivelAcesso
+    where tblUsuario.login = 'aluno'
+	and tblUsuario.idNivelAcesso = tblNivelAcesso.idNivelAcesso;
+    
+select tblUsuario.*, tblNivelAcesso.*
+	from tblUsuario, tblNivelAcesso
+    where tblUsuario.idNivelAcesso = tblNivelAcesso.idNivelAcesso;

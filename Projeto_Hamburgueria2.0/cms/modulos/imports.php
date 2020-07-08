@@ -4,6 +4,8 @@
 <script src="./js/jquery.js"></script>
 <script src="./js/jquery.form.js"></script>
 
+<?php session_start(); ?>
+
 <script>
     // Devemos, sempre, iniciar o JQuery por essa function
     $(document).ready(function(){
@@ -89,6 +91,34 @@
             data: {
                 modo: "visualizar",
                 id: idNivelAcesso 
+            },
+            success: function(dados){
+                $('#modalConteudo').html(dados);
+            }
+        });
+    }
+
+    function visualizarConteudo(idConteudo){
+        $.ajax({
+            type: "POST",
+            url: "modulos/visualizar_conteudo.php",
+            data: {
+                modo: "visualizar",
+                id: idConteudo
+            },
+            success: function(dados){
+                $('#modalConteudo').html(dados);
+            }
+        });
+    }
+
+    function visualizarLoja(idLoja){
+        $.ajax({
+            type: "POST",
+            url: "modulos/visualizar_lojas.php",
+            data: {
+                modo: "visualizar",
+                id: idLoja
             },
             success: function(dados){
                 $('#modalConteudo').html(dados);

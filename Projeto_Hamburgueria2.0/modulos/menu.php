@@ -66,12 +66,12 @@
         </nav>
 
         <div id="campoDeLogin">
-            <form action="" method="post">
+            <form action="modulos/autenticacao.php" method="post">
                 <div id="containerUsuario">
                     <div id="textoUsuario">Usuário:</div>
 
                     <div id="campoUsuario">
-                        <input type="text">
+                        <input type="text" name="txtUsuario">
                     </div>
                 </div>
 
@@ -79,7 +79,7 @@
                     <div id="textoSenha">Senha:</div>
 
                     <div id="campoSenha">
-                        <input type="password">
+                        <input type="password" name="txtSenha">
                     </div>
                 </div>
 

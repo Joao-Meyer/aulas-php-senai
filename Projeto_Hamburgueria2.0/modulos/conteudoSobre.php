@@ -1,11 +1,44 @@
 <div id="secaoConteudo">
     <div id="conteinerConteudoPagina">
         <div id="conteinerConteudoSobre">
-            <div id="conteinerImagemOQueSomos">
+            <!-- <div id="conteinerImagemOQueSomos">
                 <img src="./imagens/doug_funny_oi.jpg" alt="Doug Funny dando oi.">
-            </div>
+            </div> -->
 
-            <h3 class="titulosSobre">
+            <?php
+                require_once("conexaoBD.php");
+
+                $conexao = conexaoMysql();
+
+                $sqlQuerySelect = "select * from tblConteudo where destino = 's' and visibilidade = 1;";
+
+                $select = mysqli_query($conexao, $sqlQuerySelect);
+
+                while($rsSelect = mysqli_fetch_assoc($select)){
+                    if($rsSelect['titulo'] != null){
+                        echo("
+                            <h3 class='titulosSobre'>
+                                ".$rsSelect['titulo']."
+                            </h3>
+                        ");
+                    }
+                    if($rsSelect['imagem'] != null){
+                        echo("
+                            <div class='imagensSobre'>
+                                <img src='cms/arquivos/".$rsSelect['imagem']."' alt='".$rsSelect['imagem']."'>
+                            </div>
+                        ");
+                    }
+                    echo("
+                        <p class='textosSobre'>
+                            <br>
+                            ".$rsSelect['texto']."
+                        </p>            
+                    ");
+                }
+            ?>
+
+            <!-- <h3 class="titulosSobre">
                 O que somos
             </h3>
 
@@ -56,7 +89,7 @@
             <p class="textosSobre">
                 <br>
                 Hamburgueria com preço justo, cardápio simples, maioria dos ingredientes artesanais. Na rua Augusta 1036, são cinco opções de lanches fixos e um da semana, dois tipos de limonada da casa (green e pink lemonade), batata rústica chicana (opção de cheddar de mandioquinha e bacon defumado de cenoura), refrigerantes orgânicos. De sobremesa temos trufas e mousse.
-            </p>
+            </p> -->
         </div>
     </div>
 </div>

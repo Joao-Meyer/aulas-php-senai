@@ -17,6 +17,8 @@
                         values ( '".$titulo."', '".$imagem."', '".$texto."', '1', '".$destino."' );
                 ";
 
+                session_destroy();
+
                 if(mysqli_query($conexao, $sqlQueryInsert)){
                     $url = $_GET['url'];
                     header('location:' . $url);
