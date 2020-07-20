@@ -14,8 +14,12 @@
 class ContatoController{
 
     // Construtor
-    public function __construct(){
+    public function __construct(){        
+        // Import dda classe contato DAO
+        require_once('model/DAO/contatoDAO.php');
         
+        // Import da classe
+        require_once('model/contatoClass.php');
     }
 
     // Inserir um novo contato
@@ -36,9 +40,6 @@ class ContatoController{
             $obs = $_POST['textAreaObs'];
             // $idEstado = $_POST['selectEstado'];
 
-            // Import da classe
-            require_once('model/contatoClass.php');
-
             $contato = new Contato();
 
             $contato->setNome($nome);
@@ -52,9 +53,6 @@ class ContatoController{
             $contato->setSexo($sexo);
             $contato->setObs($obs);
             $contato->setIdEstado(1);
-
-            // Import dda classe contato DAO
-            require_once('model/DAO/contatoDAO.php');
 
             // Instância da classe DAO
             $contatoDAO = new ContatoDAO();
@@ -70,13 +68,20 @@ class ContatoController{
     }
 
     // Excluir um contato
-    public function excluirContato(){
+    public function excluirContato($id){
+        // Instância da classe ContatoDAO
+        $contatoDAO = new ContatoDAO();
 
+        // Chama o método para excluir o registro do Banco de Dados
+        $contatoDAO->deleteContato($id);
     }
 
     // Listar um contato
     public function listarContato(){
+        // Instância da classe contato
+        $listContatoDAO = new ContatoDAO();
 
+        return $listContatoDAO->selectAllContatos();
     }
 
     // Buscar um contato

@@ -11,7 +11,7 @@
 *****************************************************/
 
     // Classe para conexão com o banco de dados Mysql
-    class mysqlConection {
+    class mysqlConnection {
         // Criação dos atributos da classe
         private $server;
         private $user;

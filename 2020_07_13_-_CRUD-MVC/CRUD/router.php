@@ -29,15 +29,21 @@
                     // Valida qual a ação será chamada na controller (INSERIR, EDITAR, EXCLUIR)
                     switch($modo){
                         case 'INSERIR':
+                            // Chama o método para inserir um contato
                             $contatoController->inserirContato();
                         break;
 
                         case 'EDITAR':
+                            // Chama o método para editar um contato
                             $contatoController->atualizarContato();
                         break;
 
                         case 'EXCLUIR':
-                            $contatoController->excluirContato();
+                            // Recebe o id do registro que foi encaminhado na view
+                            $id = $_GET['id'];
+
+                            // Chama o método para excluir um contato
+                            $contatoController->excluirContato($id);
                         break;
                     }
                 }

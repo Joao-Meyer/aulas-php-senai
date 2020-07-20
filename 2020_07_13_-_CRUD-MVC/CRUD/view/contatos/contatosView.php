@@ -194,27 +194,44 @@
 
             <td>Opções</td>
         </tr>
+            <?php
+                // Import da classe controller
+                require_once('controller/contatoController.php');
 
-                    <!-- <tr class="tblLinhas">
-                        <td class="tblColunas"><?=$rsContatos['nomeContato']?></td>
-                        <td class="tblColunas"><?=$rsContatos['celular']?></td>
-                        <td class="tblColunas"><?=$rsContatos['sigla'] . ' - ' . $rsContatos['nomeEstado']?></td>
-                        <td class="tblColunas"><?=$rsContatos['email']?></td>
+                // Instancia a controller
+                $listContatosController = new ContatoController();
+
+                // Chama o método para listar todos os contatos
+                $dadosContatos = $listContatosController->listarContato();
+
+                $cont =0;
+
+                while($cont < count($dadosContatos)){
+            ?>
+                    <tr class="tblLinhas">
+                        <td class="tblColunas"><?=$dadosContatos[$cont]->getNome()?></td>
+                        <td class="tblColunas"><?=$dadosContatos[$cont]->getCelular()?></td>
+                        <td class="tblColunas"><?=$dadosContatos[$cont]->getIdEstado()?></td>
+                        <td class="tblColunas"><?=$dadosContatos[$cont]->getEmail()?></td>
                         <td class="tblColunas">
                             <div class="tblImagens">
                                 <a onclick="return confirm('Deseja realmente excluir o registro?');"
-                                href="../modulos/delete_contato.php?modo=excluir&id=<?=$rsContatos['idContato']?>">
+                                href="router.php?controller=contatos&modo=excluir&id=<?=$dadosContatos[$cont]->getIdContato()?>">
                                     <div class="excluir"></div>
                                 </a>
 
-                                    <div class="visualizar" onclick="visualizarContato(<?=$rsContatos['idContato']?>);"></div>
+                                    <div class="visualizar" onclick="visualizarContato(<?=$dadosContatos[$cont]->getIdContato()?>);"></div>
 
-                                <a href="../paginas/intro.php?modo=consultaEditar&id=<?=$rsContatos['idContato']?>">
+                                <a href="../paginas/intro.php?modo=consultaEditar&id=<?=$dadosContatos[$cont]->getIdContato()?>">
                                     <div class="editar"></div>
                                 </a>
                             </div>
                         </td>
-                    </tr> -->
+                    </tr>
+            <?php
+                    $cont++;
+                }
+            ?>
         <tr>
             <td></td>
 
